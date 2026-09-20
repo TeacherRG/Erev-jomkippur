@@ -277,14 +277,19 @@ h2{margin:0;font-size:15px;font-weight:700;letter-spacing:-.005em;line-height:1.
   .med-row{grid-template-columns:1fr;gap:4px}
 }
 
-/* ---- виджет Хабада ---- */
+/* ---- виджет времени зажигания свечей ---- */
 .cl-card{
   background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
-  box-shadow:var(--shadow);padding:22px 18px;margin-top:8px;
-  display:flex;justify-content:center;overflow-x:auto;
+  box-shadow:var(--shadow);padding:20px 18px;margin-top:8px;
 }
-.cl-card table{margin:0 auto}
-#clFrame{width:210px;max-width:100%;border:0;display:block;height:0;overflow:hidden;background:transparent}
+.cl-times{display:grid;gap:10px}
+.cl-time-row{
+  display:flex;align-items:baseline;justify-content:space-between;gap:12px;
+  padding:12px 16px;background:var(--card-warm);border:1px solid var(--line);border-radius:12px;
+}
+.cl-time-label{font-size:13.5px;font-weight:600;color:var(--ink-soft)}
+.cl-time-value{font-size:19px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums}
+.cl-times-city{margin-top:12px;text-align:center;font-size:12.5px;color:var(--ink-faint)}
 .cl-note{
   margin-top:16px;background:var(--accent-soft);
   border:1px solid rgba(31,85,115,.22);border-radius:var(--radius);padding:17px 19px;
@@ -533,17 +538,18 @@ footer{margin-top:44px;text-align:center;padding:30px 16px 0;border-top:1px soli
       <p class="lede" id="ledeT"></p>
     </header>
 
-    <!-- Код Chabad.org лежит здесь дословно, но внутри <template>: так он инертен
-         и не блокирует разбор страницы. JS переносит его в iframe ниже, где
-         он выполняется без изменений и не может подвесить основной документ. -->
-    <template id="clTpl"><style type="text/css">
-.CLTable{background-color:#DBEAF5;border-color:#A0C6E5;font-size:11px}.CLHeadingBold{font-family:Tahoma,Arial,Verdana;font-size:11px;text-align:center;font-weight:bold}.CLheading{font-family:Tahoma,Arial,Verdana;font-size:11px;text-align:center;color:#000}A.CLLink{font-family:Tahoma,Arial,Verdana;font-size:9px;text-align:center;color:#000;text-decoration:none}A.CLLink:Hover{font-family:Tahoma,Arial,Verdana;font-size:9px;text-align:center;color:#000;text-decoration:underline}.CLdate{font-family:Tahoma,Arial,Verdana;font-size:11px;text-align:left;font-weight:bold;text-decoration:none}.CLtime{font-family:Tahoma,Arial,Verdana;font-size:11px;text-align:right;font-weight:normal;margin-bottom:0}.CLhr{color:#666;height:1px;width:50%}.CLHolName{font-weight:normal}
-</style>
-<table width="190" cellpadding="0" cellspacing="0" border="0"><tr><td width="100%" class="clheading">
- <script type="text/javascript" language="javascript" src="//www.chabad.org/tools/shared/candlelighting/candlelighting.js.asp?ln=2&weeks=2"></script></td></tr></table></template>
-
     <div class="cl-card" id="clCard" hidden>
-      <iframe id="clFrame" title="Chabad.org candle lighting times" scrolling="no"></iframe>
+      <div class="cl-times">
+        <div class="cl-time-row" id="clCandleRow">
+          <span class="cl-time-label" id="clCandleLabel"></span>
+          <span class="cl-time-value" id="clCandleTime"></span>
+        </div>
+        <div class="cl-time-row" id="clHavdalahRow">
+          <span class="cl-time-label" id="clHavdalahLabel"></span>
+          <span class="cl-time-value" id="clHavdalahTime"></span>
+        </div>
+      </div>
+      <div class="cl-times-city" id="clTimesCity" hidden></div>
     </div>
 
     <div class="cl-geo" id="clGeo" hidden>
@@ -717,8 +723,10 @@ const UI = {
     eyebrowT:"Йом Кипур 5787",
     titleT:"Время зажигания свечей",
     ledeT:"Виджет Chabad.org определяет город по вашему местоположению и показывает время зажигания свечей и исхода праздника.",
+    clCandleLabel:"Зажигание свечей",
+    clHavdalahLabel:"Окончание поста",
     noteTH:"Не тот город или время не показано?",
-    noteTD:"Виджет определяет местоположение автоматически — через VPN или при неточном определении город может оказаться чужим. Откройте страницу Chabad.org и выберите свой город вручную.",
+    noteTD:"Местоположение определяется автоматически — через VPN или при неточном определении город может оказаться чужим. Откройте страницу Chabad.org и выберите свой город вручную.",
     noteTBtn:"Выбрать город на chabad.org",
     warnT:"Время дано для справки. Сверьтесь с расписанием вашей общины: обычай сдвига зажигания свечей в разных городах отличается.",
     pagerT:"Время свечей", docT:"Время свечей · Йом Кипур 5787",
@@ -740,9 +748,9 @@ const UI = {
     alertDH:"Здоровье ребёнка — выше поста",
     alertDD:"Не все дети способны поститься. Всегда, когда есть какая-либо опасность для здоровья ребёнка, поститься ему запрещено.",
     creditD:"По материалу рава Йеуды Шурпина (Chabad.org). В оригинале статьи приведены ссылки на источники.",
-    clFail:"Виджет не смог показать время для вашего города. Откройте расписание на Chabad.org по кнопке ниже и выберите город вручную.",
+    clFail:"Не удалось определить время для вашего города. Откройте расписание на Chabad.org по кнопке ниже и выберите город вручную.",
     geoLabel:"Ваше устройство:", locale:"ru-RU",
-    noteTD2:"Виджет определяет город по IP — через VPN или при неточном определении он может показать чужой. Сверьте город в таблице с тем, что определило ваше устройство. Не совпадает — выберите город вручную.",
+    noteTD2:"Город определяется автоматически по IP или геолокации — через VPN или при неточном определении он может оказаться чужим. Сверьте его с тем, что показывает блок «Ваше устройство» ниже. Не совпадает — выберите город вручную.",
     eyebrowK:"Утро кануна Йом Кипура",
     titleK:"Капарот",
     ledeK:"Выкуп капарот деньгами: держат сумму в руке, произносят молитву и трижды обводят над головой.",
@@ -773,8 +781,10 @@ const UI = {
     eyebrowT:"Jom Kippur 5787",
     titleT:"Zeiten des Kerzenzündens",
     ledeT:"Das Widget von Chabad.org erkennt Ihren Ort und zeigt die Zeiten für das Kerzenzünden und das Ende des Feiertags.",
+    clCandleLabel:"Kerzenzünden",
+    clHavdalahLabel:"Ende des Fastens",
     noteTH:"Falscher Ort oder keine Zeiten zu sehen?",
-    noteTD:"Das Widget erkennt den Ort automatisch — über ein VPN oder bei ungenauer Erkennung kann eine fremde Stadt erscheinen. Öffnen Sie die Seite von Chabad.org und wählen Sie Ihre Stadt von Hand.",
+    noteTD:"Der Ort wird automatisch erkannt — über ein VPN oder bei ungenauer Erkennung kann eine fremde Stadt erscheinen. Öffnen Sie die Seite von Chabad.org und wählen Sie Ihre Stadt von Hand.",
     noteTBtn:"Stadt auf chabad.org wählen",
     warnT:"Die Zeiten dienen als Orientierung. Bitte gleichen Sie sie mit dem Zeitplan Ihrer Gemeinde ab: der Brauch für den Zeitabstand beim Kerzenzünden ist von Ort zu Ort verschieden.",
     pagerT:"Zündzeiten", docT:"Zündzeiten · Jom Kippur 5787",
@@ -796,9 +806,9 @@ const UI = {
     alertDH:"Die Gesundheit des Kindes steht über dem Fasten",
     alertDD:"Nicht alle Kinder können fasten. Immer wenn irgendeine Gefahr für die Gesundheit des Kindes besteht, ist ihm das Fasten verboten.",
     creditD:"Nach einem Beitrag von Rabbiner Jehuda Schurpin (Chabad.org). Der Originalartikel enthält die Quellenangaben.",
-    clFail:"Das Widget konnte für Ihren Ort keine Zeiten anzeigen. Öffnen Sie den Zeitplan auf Chabad.org über die Schaltfläche unten und wählen Sie Ihre Stadt von Hand.",
+    clFail:"Für Ihren Ort konnten keine Zeiten ermittelt werden. Öffnen Sie den Zeitplan auf Chabad.org über die Schaltfläche unten und wählen Sie Ihre Stadt von Hand.",
     geoLabel:"Ihr Gerät:", locale:"de-AT",
-    noteTD2:"Das Widget erkennt die Stadt anhand der IP — über ein VPN oder bei ungenauer Erkennung kann eine fremde Stadt erscheinen. Vergleichen Sie die Stadt in der Tabelle mit der, die Ihr Gerät meldet. Stimmt sie nicht, wählen Sie Ihre Stadt von Hand.",
+    noteTD2:"Der Ort wird automatisch per IP oder Geolokalisierung erkannt — über ein VPN oder bei ungenauer Erkennung kann eine fremde Stadt erscheinen. Vergleichen Sie ihn mit der Angabe im Block „Ihr Gerät“ unten. Stimmt er nicht, wählen Sie Ihre Stadt von Hand.",
     eyebrowK:"Morgen des Erew Jom Kippur",
     titleK:"Kaporot",
     ledeK:"Auslösung der Kaporot durch Geld: Man hält den Betrag in der Hand, spricht das Gebet und kreist ihn dreimal über dem Kopf.",
@@ -1257,6 +1267,9 @@ function renderChrome(){
   g("noteTD").textContent=u.noteTD2;
   g("clGeoLabel").textContent=u.geoLabel;
   paintGeo();
+  g("clCandleLabel").textContent=u.clCandleLabel;
+  g("clHavdalahLabel").textContent=u.clHavdalahLabel;
+  paintTimes();
   g("noteTBtnLabel").textContent=u.noteTBtn;
   g("warnT").textContent=u.warnT;
   g("clFail").textContent=u.clFail;
@@ -1452,6 +1465,7 @@ function go(p,push){
   g("track").classList.toggle("dim",p!=="list");
   document.title=docTitle();
   moveInk();
+  if(p==="times")initTimes();
   if(push!==false&&location.hash.slice(2)!==p)location.hash="#/"+p;
   window.scrollTo({top:0,behavior:push===false?"auto":"smooth"});
 }
@@ -1518,52 +1532,111 @@ function paintGeo(){
 }
 setInterval(paintGeo,30000);
 
-/* ---------- виджет Хабада: грузим в iframe, изолированно ----------
-   Их скрипт — блокирующий и сторонний. Оставленный в теле документа, он
-   при медленном или недоступном chabad.org останавливает разбор страницы
-   и она остаётся пустой. В iframe он выполняется сам по себе и навредить
-   основному документу не может. Код внутри — дословный.                */
-function initChabad(){
-  const tpl=g("clTpl"), fr=g("clFrame"), card=g("clCard"), fail=g("clFail");
-  if(!tpl||!fr||!card||!fail)return;
-  let done=false;
-  const giveUp=()=>{ if(!done){ card.hidden=true; fail.hidden=false; } };
+/* ---------- время зажигания свечей и исхода Йом Кипура ----------
+   Раньше здесь дословно грузился синхронный сторонний скрипт chabad.org
+   в iframe, а страница затем 8 секунд опрашивала его текст в поисках
+   цифр "чч:мм" — при недоступности chabad.org или изменении разметки
+   виджет молча уходил в "не смог показать время". Вместо этого вызываем
+   открытый JSON-API Hebcal напрямую: он отдаёт точные времена зажигания
+   свечей и исхода для конкретной даты Йом Кипура, а не текст для парсинга. */
+let timesState="idle", timesResult=null;   // {candle:Date, havdalah:Date, tz, city}
 
-  try{
-    const d=fr.contentDocument||(fr.contentWindow&&fr.contentWindow.document);
-    if(!d){ giveUp(); return; }
-    d.open();
-    d.write('<!DOCTYPE html><html><head><meta charset="utf-8">'
-          + '<base target="_blank"><style>html,body{margin:0;padding:0;background:transparent}'
-          + 'body{display:flex;justify-content:center}</style></head><body>'
-          + tpl.innerHTML + '</body></html>');
-    d.close();
-  }catch(e){ giveUp(); return; }
-
-  // ждём, пока их скрипт впишет настоящее время (7:02 / 19:02)
-  let tries=0;
-  const poll=setInterval(()=>{
-    tries++;
-    let txt="",hgt=0;
-    try{
-      const d=fr.contentDocument;
-      txt=(d&&d.body&&d.body.innerText)||"";
-      hgt=(d&&d.body&&d.body.scrollHeight)||0;
-    }catch(e){}
-    if(/\d{1,2}:\d{2}/.test(txt)){
-      done=true; clearInterval(poll);
-      fr.style.height=Math.max(hgt,40)+"px";
-      card.hidden=false; fail.hidden=true;
-    }else if(tries>=24){            // ~8 секунд
-      clearInterval(poll); giveUp();
-    }
-  },350);
+function fetchJSON(url,ms){
+  const ctrl=(typeof AbortController!=="undefined")?new AbortController():null;
+  const opts=ctrl?{signal:ctrl.signal}:{};
+  const timer=ctrl?setTimeout(()=>ctrl.abort(),ms):null;
+  return fetch(url,opts).then(r=>{
+    if(timer)clearTimeout(timer);
+    if(!r.ok)throw new Error("http "+r.status);
+    return r.json();
+  }).catch(e=>{ if(timer)clearTimeout(timer); throw e; });
 }
-/* запускаем только после полной загрузки страницы — так виджет
-   не задерживает ни отрисовку, ни событие load */
-function startChabad(){ setTimeout(initChabad,60); }
-if(document.readyState==="complete") startChabad();
-else window.addEventListener("load",startChabad);
+
+/* грубая, не требующая разрешения геолокация по IP */
+function locateByIP(){
+  return fetchJSON("https://ipapi.co/json/",5000).then(d=>{
+    if(!d||typeof d.latitude!=="number"||typeof d.longitude!=="number")throw new Error("no coords");
+    return {lat:d.latitude, lon:d.longitude, tz:d.timezone||"", city:d.city||""};
+  });
+}
+
+/* точная геолокация браузера — запасной вариант, если IP-сервис недоступен */
+function locateByBrowser(){
+  return new Promise((resolve,reject)=>{
+    if(!navigator.geolocation){ reject(new Error("no geolocation")); return; }
+    navigator.geolocation.getCurrentPosition(
+      pos=>resolve({lat:pos.coords.latitude, lon:pos.coords.longitude, tz:"", city:""}),
+      err=>reject(err),
+      {timeout:6000, maximumAge:600000}
+    );
+  });
+}
+
+function prevDay(ymd){
+  const p=ymd.split("-").map(Number);
+  const dt=new Date(Date.UTC(p[0],p[1]-1,p[2]));
+  dt.setUTCDate(dt.getUTCDate()-1);
+  return dt.toISOString().slice(0,10);
+}
+
+function fetchYomKippurTimes(loc){
+  let tz=loc.tz;
+  if(!tz){ try{ tz=Intl.DateTimeFormat().resolvedOptions().timeZone||"UTC"; }catch(e){ tz="UTC"; } }
+  const url="https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&c=on&M=on&year=now"
+           +"&geo=pos&latitude="+encodeURIComponent(loc.lat.toFixed(4))
+           +"&longitude="+encodeURIComponent(loc.lon.toFixed(4))
+           +"&tzid="+encodeURIComponent(tz);
+  return fetchJSON(url,6000).then(d=>{
+    const items=(d&&d.items)||[];
+    const holiday=items.find(it=>it.category==="holiday"&&it.title==="Yom Kippur");
+    if(!holiday)throw new Error("no Yom Kippur in range");
+    const ymd=holiday.date.slice(0,10);
+    const eve=prevDay(ymd);
+    const candle=items.find(it=>it.category==="candles"&&it.date.slice(0,10)===eve);
+    const havdalah=items.find(it=>it.category==="havdalah"&&it.date.slice(0,10)===ymd);
+    if(!candle&&!havdalah)throw new Error("no candle/havdalah times");
+    return {
+      candle: candle?new Date(candle.date):null,
+      havdalah: havdalah?new Date(havdalah.date):null,
+      tz, city:loc.city
+    };
+  });
+}
+
+function paintTimes(){
+  const card=g("clCard"), fail=g("clFail"); if(!card||!fail)return;
+  if(timesState!=="ok"){
+    card.hidden=true;
+    fail.hidden=(timesState!=="fail");
+    return;
+  }
+  const u=UI[lang], r=timesResult;
+  const fmt=d=>{ try{ return d.toLocaleTimeString(u.locale,{hour:"2-digit",minute:"2-digit",timeZone:r.tz}); }
+                 catch(e){ return d.toLocaleTimeString(u.locale,{hour:"2-digit",minute:"2-digit"}); } };
+  const candleRow=g("clCandleRow"), havdalahRow=g("clHavdalahRow");
+  if(r.candle){ candleRow.hidden=false; g("clCandleTime").textContent=fmt(r.candle); }
+  else candleRow.hidden=true;
+  if(r.havdalah){ havdalahRow.hidden=false; g("clHavdalahTime").textContent=fmt(r.havdalah); }
+  else havdalahRow.hidden=true;
+  const cityBox=g("clTimesCity");
+  if(r.city){ cityBox.hidden=false; cityBox.textContent=r.city; }
+  else cityBox.hidden=true;
+  card.hidden=false; fail.hidden=true;
+}
+
+/* спрашиваем точную геолокацию у браузера сразу при переходе на вкладку —
+   так запрос доступа к местоположению виден пользователю именно в этот
+   момент, а не тихо где-то в фоне при загрузке страницы. Если доступ не
+   дали или он недоступен — используем IP как запасной, молчаливый вариант. */
+function initTimes(){
+  if(timesState==="ok"||timesState==="loading")return;
+  timesState="loading";
+  locateByBrowser().catch(locateByIP).then(fetchYomKippurTimes).then(res=>{
+    timesResult=res; timesState="ok"; paintTimes();
+  }).catch(()=>{
+    timesState="fail"; paintTimes();
+  });
+}
 
 /* ---------- старт ---------- */
 (function init(){
