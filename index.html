@@ -1465,6 +1465,7 @@ function go(p,push){
   g("track").classList.toggle("dim",p!=="list");
   document.title=docTitle();
   moveInk();
+  if(p==="times")initTimes();
   if(push!==false&&location.hash.slice(2)!==p)location.hash="#/"+p;
   window.scrollTo({top:0,behavior:push===false?"auto":"smooth"});
 }
@@ -1623,20 +1624,19 @@ function paintTimes(){
   card.hidden=false; fail.hidden=true;
 }
 
+/* спрашиваем точную геолокацию у браузера сразу при переходе на вкладку —
+   так запрос доступа к местоположению виден пользователю именно в этот
+   момент, а не тихо где-то в фоне при загрузке страницы. Если доступ не
+   дали или он недоступен — используем IP как запасной, молчаливый вариант. */
 function initTimes(){
   if(timesState==="ok"||timesState==="loading")return;
   timesState="loading";
-  locateByIP().catch(locateByBrowser).then(fetchYomKippurTimes).then(res=>{
+  locateByBrowser().catch(locateByIP).then(fetchYomKippurTimes).then(res=>{
     timesResult=res; timesState="ok"; paintTimes();
   }).catch(()=>{
     timesState="fail"; paintTimes();
   });
 }
-/* запускаем только после полной загрузки страницы — так запрос
-   не задерживает ни отрисовку, ни событие load */
-function startTimes(){ setTimeout(initTimes,60); }
-if(document.readyState==="complete") startTimes();
-else window.addEventListener("load",startTimes);
 
 /* ---------- старт ---------- */
 (function init(){
