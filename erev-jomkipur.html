@@ -1,0 +1,1581 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Канун Йом Кипура 5787</title>
+<meta name="description" content="Напоминания на канун Йом Кипура · Erinnerungen für Erew Jom Kippur">
+<meta name="theme-color" content="#ece0c6">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🕯️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:wght@600;700&family=Noto+Serif+Hebrew:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ece0c6; --bg-soft:#f6efdf; --card:#fdf9ef; --card-warm:#faf3e3;
+  --ink:#2c2418; --ink-soft:#6a5b45; --ink-faint:#9b8b72;
+  --line:#ddd0b2; --line-strong:#cbb994;
+  --accent:#1f5573; --accent-soft:#e4edf2;
+  --gold:#a4762a; --gold-soft:#f5ead1;
+  --done:#3f7a4d; --warn:#93402f; --warn-soft:#f7e8e0;
+  --shadow:0 1px 2px rgba(74,58,34,.06), 0 10px 28px rgba(74,58,34,.09);
+  --radius:16px;
+  --heb:'Noto Serif Hebrew','Frank Ruhl Libre','David Libre','Times New Roman',serif;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{
+  margin:0;color:var(--ink);
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;
+  background-color:var(--bg);
+  background-image:
+    radial-gradient(ellipse 80% 60% at 15% 8%, rgba(255,251,240,.75), transparent 60%),
+    radial-gradient(ellipse 70% 50% at 88% 25%, rgba(255,250,236,.55), transparent 62%),
+    radial-gradient(ellipse 90% 70% at 50% 100%, rgba(203,185,148,.28), transparent 65%),
+    radial-gradient(circle at 25% 60%, rgba(196,175,134,.14), transparent 40%);
+  background-attachment:fixed;
+}
+
+/* ================= навигация ================= */
+.nav{
+  position:sticky;top:0;z-index:60;
+  background:rgba(240,231,209,.92);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--line-strong);
+}
+.nav-top{max-width:860px;margin:0 auto;padding:11px 16px 0;display:flex;align-items:center;gap:12px}
+.brand{display:flex;align-items:center;gap:8px;flex:1;min-width:0}
+.brand .flame{font-size:17px;line-height:1;flex:none}
+.brand-txt{min-width:0}
+.brand-name{font-size:13.5px;font-weight:700;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand-sub{font-size:11px;color:var(--ink-faint);font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+.share-btn{
+  appearance:none;font:inherit;cursor:pointer;flex:none;
+  display:inline-flex;align-items:center;gap:7px;
+  background:var(--card);border:1px solid var(--line-strong);
+  color:var(--ink-soft);font-size:12.5px;font-weight:600;
+  padding:8px 14px;border-radius:999px;
+  transition:border-color .2s ease,color .2s ease,background .2s ease;
+}
+.share-btn:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+.share-btn:active{transform:scale(.97)}
+.share-btn svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+.switch{display:inline-flex;align-items:center;flex:none;position:relative;background:var(--card);border:1px solid var(--line-strong);border-radius:999px;padding:3px;gap:2px}
+.switch button{appearance:none;border:0;background:transparent;cursor:pointer;font:inherit;font-size:12.5px;font-weight:600;letter-spacing:.04em;color:var(--ink-faint);padding:6px 13px;border-radius:999px;transition:color .22s ease;position:relative;z-index:2}
+.switch button[aria-pressed="true"]{color:#fdf9ef}
+.switch-thumb{position:absolute;z-index:1;top:3px;bottom:3px;background:var(--accent);border-radius:999px;transition:transform .28s cubic-bezier(.4,0,.2,1),width .28s cubic-bezier(.4,0,.2,1);box-shadow:0 1px 4px rgba(31,85,115,.3)}
+
+/* --- табы --- */
+.tabs{
+  max-width:860px;margin:0 auto;padding:9px 16px 0;display:flex;gap:4px;position:relative;
+  overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;scroll-behavior:smooth;
+}
+.tabs::-webkit-scrollbar{display:none}
+.tab{
+  appearance:none;border:0;background:transparent;cursor:pointer;font:inherit;
+  display:flex;align-items:center;justify-content:center;gap:8px;white-space:nowrap;
+  flex:0 0 auto;padding:10px 14px 12px;border-radius:10px 10px 0 0;
+  font-size:14px;font-weight:600;color:var(--ink-faint);
+  transition:color .2s ease,background .2s ease;position:relative;
+}
+.tab:hover{color:var(--ink-soft);background:rgba(253,249,239,.5)}
+.tab[aria-selected="true"]{color:var(--accent);background:rgba(253,249,239,.85)}
+.tab svg{width:16px;height:16px;flex:none;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.tab .badge{
+  font-size:11px;font-weight:700;font-variant-numeric:tabular-nums;
+  background:var(--accent-soft);color:var(--accent);
+  padding:2px 7px;border-radius:999px;line-height:1.5;
+}
+.tab[aria-selected="false"] .badge{background:var(--line);color:var(--ink-faint)}
+.tab-ink{
+  position:absolute;bottom:0;height:2.5px;border-radius:2px 2px 0 0;
+  background:var(--accent);
+  transition:transform .32s cubic-bezier(.4,0,.2,1),width .32s cubic-bezier(.4,0,.2,1);
+}
+.track{height:3px;background:var(--line)}
+.fill{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--gold));transition:width .45s cubic-bezier(.4,0,.2,1)}
+.track.dim .fill{opacity:.25}
+
+/* ================= страницы ================= */
+.wrap{max-width:860px;margin:0 auto;padding:0 16px 90px}
+.page{display:none}
+.page.on{display:block;animation:in .32s cubic-bezier(.4,0,.2,1)}
+@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+header.hero{padding:44px 0 26px;text-align:center}
+.eyebrow{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:14px}
+h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(29px,6.6vw,44px);line-height:1.13;font-weight:700;margin:0 0 14px;letter-spacing:-.01em}
+.byline{font-size:13.5px;color:var(--ink-soft);margin:0;line-height:1.7}
+.byline span{display:block}
+.byline .credit{color:var(--ink-faint);font-size:12.5px}
+.lede{max-width:560px;margin:0 auto;font-size:14.5px;color:var(--ink-soft);line-height:1.65}
+
+.stat{margin:26px auto 0;max-width:430px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px 18px}
+.stat-row{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:10px}
+.stat-label{font-size:12.5px;color:var(--ink-soft);font-weight:500}
+.stat-num{font-size:14px;font-weight:700;font-variant-numeric:tabular-nums}
+.stat-num em{font-style:normal;color:var(--ink-faint);font-weight:500}
+.stat-track{height:7px;background:var(--line);border-radius:999px;overflow:hidden}
+.stat-fill{height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--gold));transition:width .45s cubic-bezier(.4,0,.2,1)}
+.reset{margin-top:12px;appearance:none;border:0;background:transparent;color:var(--ink-faint);font:inherit;font-size:12px;cursor:pointer;padding:2px 0;text-decoration:underline;text-underline-offset:3px}
+.reset:hover{color:var(--warn)}
+
+/* ---- секции чек-листа ---- */
+section{margin-top:36px}
+.sec-head{display:flex;align-items:center;gap:12px;margin-bottom:14px;padding:0 2px}
+.sec-num{flex:none;width:26px;height:26px;border-radius:8px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-size:12px;font-weight:700;font-variant-numeric:tabular-nums}
+h2{margin:0;font-size:15px;font-weight:700;letter-spacing:-.005em;line-height:1.35}
+.sec-line{flex:1;height:1px;background:var(--line-strong);min-width:12px}
+
+.list{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.item{display:flex;gap:13px;align-items:flex-start;padding:14px 16px;cursor:pointer;border-top:1px solid var(--line);transition:background .15s ease;user-select:none}
+.item:first-child{border-top:0}
+.item:hover{background:var(--card-warm)}
+.item:active{background:var(--gold-soft)}
+.box{flex:none;width:21px;height:21px;margin-top:1px;border:2px solid var(--line-strong);border-radius:6px;display:grid;place-items:center;transition:background .18s ease,border-color .18s ease,transform .18s ease}
+.box svg{width:12px;height:12px;stroke:#fdf9ef;stroke-width:3.2;fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:20;stroke-dashoffset:20;transition:stroke-dashoffset .25s ease .05s}
+.item[data-done="1"] .box{background:var(--done);border-color:var(--done);transform:scale(1.04)}
+.item[data-done="1"] .box svg{stroke-dashoffset:0}
+.txt{min-width:0;flex:1;display:block}
+.t{display:block;font-size:15px;font-weight:500;line-height:1.45;transition:color .2s,opacity .2s}
+.d{display:block;font-size:13px;color:var(--ink-soft);margin-top:3px;line-height:1.5}
+.item[data-done="1"] .t{color:var(--ink-faint);text-decoration:line-through;text-decoration-thickness:1.5px;text-decoration-color:var(--line-strong)}
+.item[data-done="1"] .d{opacity:.55}
+.jump{
+  display:inline-flex;align-items:center;gap:4px;margin-top:6px;
+  font-size:12.5px;font-weight:600;color:var(--accent);
+  background:var(--accent-soft);border:0;font-family:inherit;
+  padding:4px 10px;border-radius:999px;cursor:pointer;
+  transition:background .18s ease,transform .18s ease;
+}
+.jump:hover{background:#d4e4ed;transform:translateX(2px)}
+
+.callout{margin-top:14px;background:var(--warn-soft);border:1px solid rgba(147,64,47,.25);border-radius:var(--radius);padding:16px 18px}
+.callout h3{margin:0 0 10px;font-size:14px;font-weight:700;color:var(--warn)}
+.callout dl{margin:0;display:grid;gap:7px}
+.callout .row{display:flex;gap:8px;font-size:13.5px;line-height:1.5;flex-wrap:wrap}
+.callout dt{font-weight:600;color:var(--ink);flex:none}
+.callout dd{margin:0;color:var(--ink-soft)}
+
+/* ---- благословение ---- */
+.scroll{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:6px 22px 22px;margin-top:8px;
+  background-image:radial-gradient(ellipse 70% 40% at 80% 0%, rgba(245,234,209,.9), transparent 70%);
+}
+.block{border-top:1px solid var(--line);padding:18px 0}
+.block:first-child{border-top:0}
+.rubric{display:grid;grid-template-columns:1fr 1fr;gap:6px 30px;align-items:baseline;font-size:13px;color:var(--gold);font-weight:600}
+.rubric .r-heb{font-family:var(--heb);direction:rtl;text-align:right;font-size:15px;font-weight:500;line-height:1.7}
+.rubric .r-trn{font-style:italic}
+.verse{display:grid;grid-template-columns:1fr 1fr;gap:10px 30px;align-items:start;margin-top:10px}
+.verse:first-child{margin-top:0}
+.v-heb{font-family:var(--heb);direction:rtl;text-align:right;unicode-bidi:isolate;font-size:19px;line-height:2.05;color:var(--ink);font-weight:500;order:2;padding-inline-start:28px;border-inline-start:1px solid var(--line)}
+.v-trn{font-size:14.5px;line-height:1.72;color:var(--ink-soft);order:1;padding-top:3px}
+.verse.lead .v-heb{font-size:22px;color:var(--accent);font-weight:600}
+.verse.lead .v-trn{font-size:15px;color:var(--ink);font-weight:500}
+.note .v-heb{font-size:16px;line-height:1.9;color:var(--ink-soft);font-weight:400}
+.note .v-trn{font-size:13.5px;font-style:italic;color:var(--ink-faint)}
+
+/* ---- раздел «Пост и здоровье» ---- */
+.tab-med[aria-selected="true"]{color:var(--warn)}
+.tab-med[aria-selected="true"]~.tab-ink,
+.tabs:has(.tab-med[aria-selected="true"]) .tab-ink{background:var(--warn)}
+
+.med-alert{
+  background:var(--warn-soft);border:1.5px solid rgba(147,64,47,.4);
+  border-radius:var(--radius);padding:18px 20px;margin-top:8px;
+}
+.med-alert-h{font-size:14.5px;font-weight:700;color:var(--warn);margin-bottom:6px}
+.med-alert-d{font-size:13.5px;color:var(--ink);line-height:1.62}
+.med-tr{
+  margin:12px 0 0;font-size:12.5px;color:var(--ink-faint);
+  line-height:1.55;text-align:center;font-style:italic;
+}
+
+.myth{
+  background:var(--accent-soft);border:1.5px solid rgba(31,85,115,.32);
+  border-radius:var(--radius);padding:18px 20px;margin-top:8px;
+}
+.myth-h{font-size:14.5px;font-weight:700;color:var(--accent);margin-bottom:6px}
+.myth-d{font-size:13.5px;color:var(--ink);line-height:1.62}
+.myth-d b{font-weight:700}
+.myth-d .heb{font-family:var(--heb);direction:rtl;unicode-bidi:isolate;color:var(--accent);font-weight:600}
+.myth+.med-alert{margin-top:12px}
+
+.med-sec{margin-top:34px}
+.med-head{display:flex;align-items:baseline;gap:14px;margin-bottom:6px;flex-wrap:wrap}
+.med-head h2{font-size:17px;font-weight:700;letter-spacing:-.01em;margin:0;flex:1;min-width:180px}
+.med-src{
+  font-family:var(--heb);direction:rtl;unicode-bidi:isolate;
+  font-size:13px;color:var(--accent);font-weight:500;flex:none;
+}
+.med-lead{font-size:14px;color:var(--ink-soft);line-height:1.6;margin:0 0 14px}
+.med-rule{height:1px;background:var(--line-strong);margin-bottom:16px}
+
+.med-grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(255px,1fr))}
+.med-card{
+  background:var(--card);border:1px solid var(--line);border-radius:14px;
+  box-shadow:var(--shadow);padding:16px 18px;
+}
+.med-card-t{font-size:14.5px;font-weight:700;margin-bottom:7px;line-height:1.35}
+.med-card-t .heb{
+  font-family:var(--heb);direction:rtl;unicode-bidi:isolate;
+  color:var(--accent);font-weight:600;font-size:15px;margin-inline-start:5px;
+}
+.med-card-d{font-size:13.5px;color:var(--ink-soft);line-height:1.6}
+.med-card-d b{color:var(--ink);font-weight:600}
+.med-card.big .med-card-t{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-size:30px;font-weight:700;color:var(--accent);margin-bottom:4px;
+}
+
+.med-quote{
+  margin-top:14px;background:var(--gold-soft);
+  border:1px solid rgba(164,118,42,.35);border-radius:14px;
+  padding:16px 20px;font-size:14px;line-height:1.62;color:var(--ink);
+  text-align:center;font-weight:500;
+}
+.med-quote .heb{font-family:var(--heb);direction:rtl;unicode-bidi:isolate;color:var(--gold);font-weight:600}
+.med-note{margin:12px 0 0;font-size:13px;color:var(--ink-faint);line-height:1.58;font-style:italic}
+
+.med-rows{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);overflow:hidden}
+.med-row{display:grid;grid-template-columns:minmax(150px,210px) 1fr;gap:6px 20px;padding:15px 18px;border-top:1px solid var(--line)}
+.med-row:first-child{border-top:0}
+.med-row-t{font-size:14px;font-weight:700;line-height:1.4}
+.med-row-t .heb{font-family:var(--heb);direction:rtl;unicode-bidi:isolate;color:var(--accent);font-weight:600;display:block;font-size:14px;margin-top:2px}
+.med-row-d{font-size:13.5px;color:var(--ink-soft);line-height:1.6}
+.med-row-d .act{display:block;margin-top:5px;color:var(--ink);font-weight:600}
+
+.med-steps{display:grid;gap:12px}
+.med-step{display:flex;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:16px 18px}
+.med-step-n{flex:none;width:28px;height:28px;border-radius:9px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-size:13px;font-weight:700}
+.med-step-t{font-size:14.5px;font-weight:700;margin-bottom:5px}
+.med-step-t .heb{font-family:var(--heb);direction:rtl;unicode-bidi:isolate;color:var(--accent);font-weight:600;margin-inline-start:5px}
+.med-step-d{font-size:13.5px;color:var(--ink-soft);line-height:1.6}
+.med-step-d b{color:var(--ink)}
+
+.med-final{
+  margin-top:30px;text-align:center;
+  background:var(--card);border:1px solid var(--line-strong);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:28px 24px;
+  background-image:radial-gradient(ellipse 70% 80% at 50% 0%, var(--gold-soft), transparent 75%);
+}
+.med-final p{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-size:clamp(20px,4.4vw,27px);line-height:1.3;font-weight:700;margin:0;color:var(--ink);
+}
+.med-credit{margin-top:22px;text-align:center;font-size:12.5px;color:var(--ink-faint);line-height:1.7}
+.med-credit-heb{font-family:var(--heb);direction:rtl;font-size:13px;color:var(--ink-soft);margin-top:3px}
+.med-credit-c{margin-top:5px;font-size:11.5px}
+
+@media (max-width:560px){
+  .med-row{grid-template-columns:1fr;gap:4px}
+}
+
+/* ---- виджет Хабада ---- */
+.cl-card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:22px 18px;margin-top:8px;
+  display:flex;justify-content:center;overflow-x:auto;
+}
+.cl-card table{margin:0 auto}
+#clFrame{width:210px;max-width:100%;border:0;display:block;height:0;overflow:hidden;background:transparent}
+.cl-note{
+  margin-top:16px;background:var(--accent-soft);
+  border:1px solid rgba(31,85,115,.22);border-radius:var(--radius);padding:17px 19px;
+}
+.cl-note-h{font-size:14px;font-weight:700;color:var(--accent);margin-bottom:5px}
+.cl-note-d{font-size:13.5px;color:var(--ink-soft);line-height:1.58}
+.cl-btn{
+  display:inline-flex;align-items:center;gap:7px;margin-top:13px;
+  background:var(--accent);color:#fdf9ef;text-decoration:none;
+  font-size:13.5px;font-weight:600;padding:11px 18px;border-radius:999px;
+  transition:background .2s ease;
+}
+.cl-btn:hover{background:#17435c}
+.cl-btn svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.cl-geo{
+  display:flex;align-items:center;justify-content:center;
+  flex-wrap:wrap;gap:4px 8px;margin-top:12px;
+  font-size:13px;color:var(--ink-soft);
+  background:var(--card-warm);border:1px solid var(--line);
+  border-radius:999px;padding:9px 18px;width:fit-content;
+  margin-left:auto;margin-right:auto;max-width:100%;
+}
+.cl-geo svg{width:15px;height:15px;flex:none;stroke:var(--gold);fill:none;stroke-width:1.7}
+.cl-geo-city{font-weight:700;color:var(--ink)}
+.cl-geo-time{font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
+.cl-geo-sep{color:var(--ink-faint)}
+.cl-geo-zone{font-size:11.5px;color:var(--ink-faint);font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+
+.cl-fail{
+  margin:8px 0 0;background:var(--warn-soft);
+  border:1px solid rgba(147,64,47,.25);border-radius:var(--radius);
+  padding:16px 18px;font-size:13.5px;color:var(--warn);
+  line-height:1.58;font-weight:500;
+}
+.cl-warn{
+  margin:16px 0 0;font-size:12.5px;color:var(--ink-faint);line-height:1.6;
+  text-align:center;max-width:620px;margin-left:auto;margin-right:auto;
+  padding:0 8px;
+}
+
+/* ---- стих в рамке (Ве-hу рахум) ---- */
+.vbox{
+  margin-top:14px;text-align:center;
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:22px 24px 18px;
+  background-image:radial-gradient(ellipse 60% 70% at 50% 0%, var(--gold-soft), transparent 72%);
+}
+.vbox-h{font-size:14px;font-weight:700;color:var(--gold);letter-spacing:-.005em}
+.vbox-sub{font-size:12.5px;color:var(--ink-faint);margin-top:4px;line-height:1.5}
+.vbox-heb{
+  font-family:var(--heb);direction:rtl;unicode-bidi:isolate;white-space:pre-line;
+  font-size:23px;line-height:2.1;font-weight:500;color:var(--ink);
+  margin:16px auto 0;max-width:34ch;
+}
+.vbox-tr{
+  font-size:14px;font-style:italic;color:var(--accent);font-weight:500;
+  margin-top:12px;line-height:1.6;
+  padding-top:12px;border-top:1px solid var(--line);
+}
+.vbox-trn{font-size:14px;color:var(--ink-soft);margin-top:9px;line-height:1.62}
+.vbox-src{font-size:11.5px;color:var(--ink-faint);margin-top:12px;letter-spacing:.04em}
+
+/* ---- заголовок внутри свитка ---- */
+.bhead{display:grid;grid-template-columns:1fr 1fr;gap:6px 30px;align-items:baseline;margin-bottom:4px}
+.bhead .h-trn{font-size:15px;font-weight:700;color:var(--ink);letter-spacing:-.005em}
+.bhead .h-heb{font-family:var(--heb);direction:rtl;text-align:right;font-size:18px;font-weight:600;color:var(--accent);line-height:1.6}
+.v-heb.pre,.v-trn.pre{white-space:pre-line}
+.amount{
+  display:inline-block;margin-top:8px;
+  background:var(--gold-soft);border:1px solid rgba(164,118,42,.3);
+  color:var(--gold);font-weight:700;font-size:13.5px;
+  padding:5px 12px;border-radius:999px;
+}
+
+/* ---- донат ---- */
+.donate{
+  display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+  margin-top:20px;text-decoration:none;color:inherit;
+  background:linear-gradient(135deg, var(--gold-soft), var(--card));
+  border:1px solid rgba(164,118,42,.34);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:20px 22px;
+  transition:border-color .2s ease,transform .2s ease,box-shadow .2s ease;
+}
+.donate:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 2px 4px rgba(74,58,34,.08),0 14px 32px rgba(74,58,34,.13)}
+.donate-icon{font-size:26px;line-height:1;flex:none}
+.donate-txt{flex:1;min-width:190px;display:block}
+.donate-h{display:block;font-size:15.5px;font-weight:700;letter-spacing:-.01em;margin-bottom:3px}
+.donate-d{display:block;font-size:13.5px;color:var(--ink-soft);line-height:1.55}
+.donate-btn{
+  flex:none;display:inline-flex;align-items:center;gap:8px;
+  background:var(--gold);color:#fdf9ef;
+  font-size:13.5px;font-weight:600;padding:11px 18px;border-radius:999px;
+  transition:background .2s ease;
+}
+.donate:hover .donate-btn{background:#8f6524}
+.donate-btn svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---- переход между страницами ---- */
+.pager{
+  margin-top:30px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap;
+}
+.pager.two{justify-content:space-between}
+.pager button{
+  display:inline-flex;align-items:center;gap:9px;
+  appearance:none;font:inherit;cursor:pointer;
+  background:var(--card);border:1px solid var(--line-strong);
+  color:var(--ink);font-size:14px;font-weight:600;
+  padding:13px 22px;border-radius:999px;box-shadow:var(--shadow);
+  transition:border-color .2s ease,transform .2s ease,color .2s ease;
+}
+.pager button:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-1px)}
+.pager svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+footer{margin-top:44px;text-align:center;padding:30px 16px 0;border-top:1px solid var(--line-strong)}
+.blessing{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(22px,5vw,30px);font-weight:700;color:var(--gold);margin:0 0 8px}
+.foot-note{font-size:12.5px;color:var(--ink-faint);margin:0}
+
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,120%);background:var(--ink);color:var(--card);padding:11px 20px;border-radius:999px;font-size:13.5px;font-weight:600;z-index:100;box-shadow:0 8px 30px rgba(44,36,24,.3);transition:transform .35s cubic-bezier(.4,0,.2,1);pointer-events:none}
+.toast.show{transform:translate(-50%,0)}
+
+@media (max-width:640px){
+  .verse,.rubric,.bhead{grid-template-columns:1fr;gap:8px}
+  .bhead .h-trn{order:2}
+  .bhead .h-heb{order:1}
+  .donate{padding:18px;gap:13px}
+  .donate-btn{width:100%;justify-content:center}
+  .pager.two{gap:8px}
+  .pager.two button{flex:1;justify-content:center;padding:13px 14px;font-size:13px}
+  .v-heb{order:1;padding-inline-start:0;border-inline-start:0;padding-bottom:10px;border-bottom:1px solid var(--line)}
+  .v-trn{order:2;padding-top:0}
+  .rubric .r-trn{order:2}
+  .rubric .r-heb{order:1}
+  .scroll{padding:6px 16px 18px}
+}
+@media (max-width:640px){
+  .vbox{padding:18px 16px 15px}
+  .vbox-heb{font-size:20px;line-height:2}
+}
+@media (max-width:560px){
+  .brand-sub{display:none}
+  .share-btn{padding:8px;gap:0}
+  .share-btn span{display:none}
+  .tab{font-size:11.5px;gap:5px;padding:10px 4px 12px}
+  .tab svg{width:14px;height:14px}
+  .tab .badge{display:none}
+  .switch button{padding:6px 11px;font-size:12px}
+  .item{padding:13px 14px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+@media print{
+  .nav,.reset,.toast,.pager,.jump{display:none!important}
+  body{background:#fff}
+  .page{display:block!important}
+  .list,.stat,.scroll{box-shadow:none;border-color:#bbb}
+  section,.block{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-top">
+    <div class="brand">
+      <span class="flame">🕯️</span>
+      <span class="brand-txt">
+        <span class="brand-name" id="brandName"></span>
+        <span class="brand-sub" id="brandSub"></span>
+      </span>
+    </div>
+    <button class="share-btn" id="shareBtn" type="button">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.8"/><circle cx="6" cy="12" r="2.8"/><circle cx="18" cy="19" r="2.8"/><path d="M8.5 10.7l7-3.4"/><path d="M8.5 13.3l7 3.4"/></svg>
+      <span id="shareLabel"></span>
+    </button>
+    <div class="switch" role="group" id="langSwitch">
+      <span class="switch-thumb" id="thumb"></span>
+      <button type="button" data-lang="ru" aria-pressed="true">RU</button>
+      <button type="button" data-lang="de" aria-pressed="false">DE</button>
+    </div>
+  </div>
+
+  <div class="tabs" role="tablist" id="tabs">
+    <button class="tab" role="tab" data-page="list" aria-selected="true">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+      <span class="tab-label"></span><span class="badge" id="tabBadge"></span>
+    </button>
+    <button class="tab" role="tab" data-page="times" aria-selected="false">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.2 2"/></svg>
+      <span class="tab-label"></span>
+    </button>
+    <button class="tab" role="tab" data-page="kaporot" aria-selected="false">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6"/><path d="M9.4 10h5.2"/><path d="M9.4 14h5.2"/></svg>
+      <span class="tab-label"></span>
+    </button>
+    <button class="tab" role="tab" data-page="bracha" aria-selected="false">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c1.6 2.2 2.6 3.9 2.6 5.3A2.6 2.6 0 0112 9.9a2.6 2.6 0 01-2.6-2.6C9.4 5.9 10.4 4.2 12 2z"/><path d="M8 13.5c1.2 1.3 2.5 2 4 2s2.8-.7 4-2"/><path d="M5 18c2 2 4.4 3 7 3s5-1 7-3"/></svg>
+      <span class="tab-label"></span>
+    </button>
+    <button class="tab tab-med" role="tab" data-page="fast" aria-selected="false">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5S3.5 15.2 3.5 9.2A4.7 4.7 0 0112 7a4.7 4.7 0 018.5 2.2c0 6-8.5 11.3-8.5 11.3z"/></svg>
+      <span class="tab-label"></span>
+    </button>
+    <button class="tab" role="tab" data-page="kids" aria-selected="false">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="7.5" r="2.8"/><path d="M3.8 20c0-2.9 2.3-5.2 5.2-5.2s5.2 2.3 5.2 5.2"/><circle cx="17.4" cy="9.6" r="2.1"/><path d="M14.6 20c0-2.2 1.3-3.9 2.8-3.9s2.8 1.7 2.8 3.9"/></svg>
+      <span class="tab-label"></span>
+    </button>
+    <span class="tab-ink" id="tabInk"></span>
+  </div>
+
+  <div class="track" id="track"><div class="fill" id="barFill"></div></div>
+</nav>
+
+<div class="wrap">
+
+  <!-- ============ страница 1 ============ -->
+  <div class="page on" id="page-list" role="tabpanel">
+    <header class="hero">
+      <div class="eyebrow" id="eyebrow1"></div>
+      <h1 id="title1"></h1>
+      <p class="byline">
+        <span id="pub"></span>
+        <span class="credit" id="credit"></span>
+      </p>
+      <div class="stat">
+        <div class="stat-row">
+          <span class="stat-label" id="statLabel"></span>
+          <span class="stat-num" id="statNum"></span>
+        </div>
+        <div class="stat-track"><div class="stat-fill" id="statFill"></div></div>
+        <button class="reset" id="resetBtn" type="button"></button>
+      </div>
+    </header>
+    <main id="listContent"></main>
+    <div class="pager">
+      <button type="button" data-go="kaporot">
+        <span class="p-next"></span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- ============ страница 2 · Время свечей ============ -->
+  <div class="page" id="page-times" role="tabpanel">
+    <header class="hero">
+      <div class="eyebrow" id="eyebrowT"></div>
+      <h1 id="titleT"></h1>
+      <p class="lede" id="ledeT"></p>
+    </header>
+
+    <!-- Код Chabad.org лежит здесь дословно, но внутри <template>: так он инертен
+         и не блокирует разбор страницы. JS переносит его в iframe ниже, где
+         он выполняется без изменений и не может подвесить основной документ. -->
+    <template id="clTpl"><style type="text/css">
+.CLTable{background-color:#DBEAF5;border-color:#A0C6E5;font-size:11px}.CLHeadingBold{font-family:Tahoma,Arial,Verdana;font-size:11px;text-align:center;font-weight:bold}.CLheading{font-family:Tahoma,Arial,Verdana;font-size:11px;text-align:center;color:#000}A.CLLink{font-family:Tahoma,Arial,Verdana;font-size:9px;text-align:center;color:#000;text-decoration:none}A.CLLink:Hover{font-family:Tahoma,Arial,Verdana;font-size:9px;text-align:center;color:#000;text-decoration:underline}.CLdate{font-family:Tahoma,Arial,Verdana;font-size:11px;text-align:left;font-weight:bold;text-decoration:none}.CLtime{font-family:Tahoma,Arial,Verdana;font-size:11px;text-align:right;font-weight:normal;margin-bottom:0}.CLhr{color:#666;height:1px;width:50%}.CLHolName{font-weight:normal}
+</style>
+<table width="190" cellpadding="0" cellspacing="0" border="0"><tr><td width="100%" class="clheading">
+ <script type="text/javascript" language="javascript" src="//www.chabad.org/tools/shared/candlelighting/candlelighting.js.asp?ln=2&weeks=2"></script></td></tr></table></template>
+
+    <div class="cl-card" id="clCard" hidden>
+      <iframe id="clFrame" title="Chabad.org candle lighting times" scrolling="no"></iframe>
+    </div>
+
+    <div class="cl-geo" id="clGeo" hidden>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3.2 9h17.6M3.2 15h17.6"/><path d="M12 3a15 15 0 000 18a15 15 0 000-18z"/></svg>
+      <span class="cl-geo-label" id="clGeoLabel"></span>
+      <span class="cl-geo-city" id="clGeoCity"></span>
+      <span class="cl-geo-sep">·</span>
+      <span class="cl-geo-time" id="clGeoTime"></span>
+      <span class="cl-geo-zone" id="clGeoZone"></span>
+    </div>
+
+    <p class="cl-fail" id="clFail" hidden></p>
+
+    <div class="cl-note">
+      <div class="cl-note-h" id="noteTH"></div>
+      <div class="cl-note-d" id="noteTD"></div>
+      <a class="cl-btn" id="noteTBtn" href="https://www.chabad.org/calendar/candlelighting_cdo/aid/6226/jewish/Accurate-Shabbat-Candle-Lighting-Times.htm" target="_blank" rel="noopener">
+        <span id="noteTBtnLabel"></span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>
+      </a>
+    </div>
+
+    <p class="cl-warn" id="warnT"></p>
+
+    <div class="pager two">
+      <button type="button" data-go="list">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5"/><path d="M11 18l-6-6 6-6"/></svg>
+        <span class="p-back"></span>
+      </button>
+      <button type="button" data-go="kaporot">
+        <span class="p-next"></span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- ============ страница 3 · Капарот ============ -->
+  <div class="page" id="page-kaporot" role="tabpanel">
+    <header class="hero">
+      <div class="eyebrow" id="eyebrowK"></div>
+      <h1 id="titleK"></h1>
+      <p class="lede" id="ledeK"></p>
+    </header>
+    <main id="kaporotContent"></main>
+
+    <a class="donate" id="donateCard" href="https://mychitas.app/donate" target="_blank" rel="noopener">
+      <span class="donate-icon">🕯️</span>
+      <span class="donate-txt">
+        <span class="donate-h" id="donateH"></span>
+        <span class="donate-d" id="donateD"></span>
+      </span>
+      <span class="donate-btn">
+        <span id="donateB"></span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+      </span>
+    </a>
+
+    <div class="pager two">
+      <button type="button" data-go="times">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5"/><path d="M11 18l-6-6 6-6"/></svg>
+        <span class="p-back"></span>
+      </button>
+      <button type="button" data-go="bracha">
+        <span class="p-next"></span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- ============ страница 3 · Благословение ============ -->
+  <div class="page" id="page-bracha" role="tabpanel">
+    <header class="hero">
+      <div class="eyebrow" id="eyebrow2"></div>
+      <h1 id="title2"></h1>
+      <p class="lede" id="lede2"></p>
+    </header>
+    <main id="brachaContent"></main>
+    <div class="pager two">
+      <button type="button" data-go="kaporot">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5"/><path d="M11 18l-6-6 6-6"/></svg>
+        <span class="p-back"></span>
+      </button>
+      <button type="button" data-go="fast">
+        <span class="p-next"></span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- ============ страница 5 · Пост и здоровье ============ -->
+  <div class="page" id="page-fast" role="tabpanel">
+    <header class="hero">
+      <div class="eyebrow" id="eyebrowF"></div>
+      <h1 id="titleF"></h1>
+      <p class="lede" id="ledeF"></p>
+    </header>
+
+    <div class="med-alert">
+      <div class="med-alert-h" id="alertFH"></div>
+      <div class="med-alert-d" id="alertFD"></div>
+    </div>
+
+    <p class="med-tr" id="medTr" hidden></p>
+
+    <main id="fastContent"></main>
+
+    <div class="med-credit">
+      <div id="creditF"></div>
+      <div class="med-credit-heb" lang="he" dir="rtl">מנחם מענדל הראל, צפת עיה״ק</div>
+      <div class="med-credit-c">© Chitasclub 5786</div>
+    </div>
+
+    <div class="pager two">
+      <button type="button" data-go="bracha">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5"/><path d="M11 18l-6-6 6-6"/></svg>
+        <span class="p-back"></span>
+      </button>
+      <button type="button" data-go="kids">
+        <span class="p-next"></span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- ============ страница 6 · Дети и пост ============ -->
+  <div class="page" id="page-kids" role="tabpanel">
+    <header class="hero">
+      <div class="eyebrow" id="eyebrowD"></div>
+      <h1 id="titleD"></h1>
+      <p class="lede" id="ledeD"></p>
+    </header>
+
+    <div class="myth">
+      <div class="myth-h" id="mythDH"></div>
+      <div class="myth-d" id="mythDD"></div>
+    </div>
+
+    <div class="med-alert">
+      <div class="med-alert-h" id="alertDH"></div>
+      <div class="med-alert-d" id="alertDD"></div>
+    </div>
+
+    <main id="kidsContent"></main>
+
+    <div class="med-credit"><div id="creditD"></div></div>
+
+    <div class="pager">
+      <button type="button" data-go="fast">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5"/><path d="M11 18l-6-6 6-6"/></svg>
+        <span class="p-back"></span>
+      </button>
+    </div>
+  </div>
+
+  <footer id="pageFooter">
+    <p class="blessing" id="blessing"></p>
+    <p class="foot-note" id="footNote"></p>
+  </footer>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============================================================
+   Двуязычный контент · Zweisprachiger Inhalt
+   ============================================================ */
+const UI = {
+  ru:{lang:"ru",
+    brandName:"Канун Йом Кипура", brandSub:"9 Тишрей 5787",
+    tabList:"Чек-лист", tabTimes:"Время", tabKaporot:"Капарот", tabBracha:"Благословение",
+    eyebrowT:"Йом Кипур 5787",
+    titleT:"Время зажигания свечей",
+    ledeT:"Виджет Chabad.org определяет город по вашему местоположению и показывает время зажигания свечей и исхода праздника.",
+    noteTH:"Не тот город или время не показано?",
+    noteTD:"Виджет определяет местоположение автоматически — через VPN или при неточном определении город может оказаться чужим. Откройте страницу Chabad.org и выберите свой город вручную.",
+    noteTBtn:"Выбрать город на chabad.org",
+    warnT:"Время дано для справки. Сверьтесь с расписанием вашей общины: обычай сдвига зажигания свечей в разных городах отличается.",
+    pagerT:"Время свечей", docT:"Время свечей · Йом Кипур 5787",
+    tabFast:"Здоровье", docF:"Пост и здоровье · Йом Кипур", pagerF:"Пост и здоровье",
+    eyebrowF:"Законы поста · פיקוח נפש",
+    titleF:"Пост и здоровье",
+    ledeF:"Практическое и галахическое руководство по питанию для больных (חולים), беременных (מעוברות) и рожениц (יולדות) на основе постановлений Алтер Ребе.",
+    alertFH:"Прочитайте до поста, а не во время",
+    alertFD:"Это справочный материал, а не постановление для вашего случая. До Йом Кипура спросите лечащего врача и раввина. При реальной опасности для жизни действуют немедленно и ответа не ждут.",
+    finalF:"Жизнь и здоровье еврея — основа выполнения всех Заповедей.",
+    creditF:"Составитель: рав Менахем-Мендл Гарель. По трудам שו״ע אדה״ז, משנה ברורה, פסקי תשובות и современных авторитетов.",
+    medTr:"",
+    tabKids:"Дети", docD:"Дети и пост · Йом Кипур", pagerD:"Дети и пост",
+    eyebrowD:"Хинух · חינוך",
+    titleD:"С какого возраста поститься",
+    ledeD:"Дети и пост в Йом Кипур: с какого возраста, сколько часов и что делать, если ребёнок хочет поститься сам.",
+    mythDH:"Распространённое мнение — и почему оно неверно",
+    mythDD:"Принято считать, что ребёнок должен поститься три поста перед своей бар- или бат-мицвой. <b>Авторитетного источника у этого правила нет.</b> Требования к детям различаются от поста к посту, и Йом Кипур стоит особняком: это самый строгий пост и единственный, обязательный по Торе (<span class='heb' lang='he' dir='rtl'>מדאורייתא</span>).",
+    alertDH:"Здоровье ребёнка — выше поста",
+    alertDD:"Не все дети способны поститься. Всегда, когда есть какая-либо опасность для здоровья ребёнка, поститься ему запрещено.",
+    creditD:"По материалу рава Йеуды Шурпина (Chabad.org). В оригинале статьи приведены ссылки на источники.",
+    clFail:"Виджет не смог показать время для вашего города. Откройте расписание на Chabad.org по кнопке ниже и выберите город вручную.",
+    geoLabel:"Ваше устройство:", locale:"ru-RU",
+    noteTD2:"Виджет определяет город по IP — через VPN или при неточном определении он может показать чужой. Сверьте город в таблице с тем, что определило ваше устройство. Не совпадает — выберите город вручную.",
+    eyebrowK:"Утро кануна Йом Кипура",
+    titleK:"Капарот",
+    ledeK:"Выкуп капарот деньгами: держат сумму в руке, произносят молитву и трижды обводят над головой.",
+    donateH:"Пидьон капарот — на детский Хитас",
+    donateD:"Выкуп капарот идёт на поддержку MyChitas — платформы ежедневного изучения Хитаса для детей 6–14 лет.",
+    donateB:"Пожертвовать на mychitas.app",
+    pagerK:"Капарот", docK:"Капарот · канун Йом Кипура",
+    eyebrow1:"Чек-лист · 9 Тишрей 5787",
+    title1:"Напоминания на канун Йом Кипура 5787",
+    pub:"Издано Институтом Алахи ХАБАД",
+    credit:"Перевод Chitasclub с помощью Claude",
+    statLabel:"Выполнено", reset:"Сбросить все отметки",
+    eyebrow2:"Перед «Коль нидрей»",
+    title2:"Благословение детей",
+    lede2:"Отец, одетый в китель и облачённый в талит, кладёт руки на голову ребёнка и благословляет его перед уходом в синагогу.",
+    pagerNext:"Благословение детей", pagerBack:"Вернуться к чек-листу",
+    blessing:"Гмар хатима това! 🕯️",
+    footNote:"Отметки сохраняются в этом браузере.",
+    toastReset:"Отметки сброшены", of:"из",
+    share:"Поделиться",
+    shareTitle:"Канун Йом Кипура 5787",
+    shareText:"Напоминания на канун Йом Кипура: чек-лист, капарот и благословение детей — на русском и немецком.",
+    toastCopied:"Ссылка скопирована",
+    docList:"Канун Йом Кипура 5787", docBracha:"Благословение детей · Йом Кипур"},
+  de:{lang:"de",
+    brandName:"Erew Jom Kippur", brandSub:"9. Tischrej 5787",
+    tabList:"Checkliste", tabTimes:"Zeiten", tabKaporot:"Kaporot", tabBracha:"Segen",
+    eyebrowT:"Jom Kippur 5787",
+    titleT:"Zeiten des Kerzenzündens",
+    ledeT:"Das Widget von Chabad.org erkennt Ihren Ort und zeigt die Zeiten für das Kerzenzünden und das Ende des Feiertags.",
+    noteTH:"Falscher Ort oder keine Zeiten zu sehen?",
+    noteTD:"Das Widget erkennt den Ort automatisch — über ein VPN oder bei ungenauer Erkennung kann eine fremde Stadt erscheinen. Öffnen Sie die Seite von Chabad.org und wählen Sie Ihre Stadt von Hand.",
+    noteTBtn:"Stadt auf chabad.org wählen",
+    warnT:"Die Zeiten dienen als Orientierung. Bitte gleichen Sie sie mit dem Zeitplan Ihrer Gemeinde ab: der Brauch für den Zeitabstand beim Kerzenzünden ist von Ort zu Ort verschieden.",
+    pagerT:"Zündzeiten", docT:"Zündzeiten · Jom Kippur 5787",
+    tabFast:"Gesundheit", docF:"Fasten und Gesundheit · Jom Kippur", pagerF:"Fasten und Gesundheit",
+    eyebrowF:"Gesetze des Fastens · פיקוח נפש",
+    titleF:"Fasten und Gesundheit",
+    ledeF:"Praktischer und halachischer Leitfaden zur Ernährung für Kranke (חולים), Schwangere (מעוברות) und Wöchnerinnen (יולדות) auf Grundlage der Entscheidungen des Alten Rebben.",
+    alertFH:"Vor dem Fasten lesen, nicht währenddessen",
+    alertFD:"Dies ist eine Orientierungshilfe, keine Entscheidung für Ihren Fall. Fragen Sie vor Jom Kippur Ihren behandelnden Arzt und Ihren Rabbiner. Bei tatsächlicher Lebensgefahr handelt man sofort und wartet auf keine Antwort.",
+    finalF:"Leben und Gesundheit eines Juden sind die Grundlage für die Erfüllung aller Gebote.",
+    creditF:"Zusammengestellt von Rabbiner Menachem Mendel Harel. Nach den Werken שו״ע אדה״ז, משנה ברורה, פסקי תשובות und zeitgenössischer Autoritäten.",
+    medTr:"Deutsche Fassung: Übersetzung des russischen Originals. Im Zweifelsfall gilt das Original bzw. die Auskunft Ihres Rabbiners.",
+    tabKids:"Kinder", docD:"Kinder und Fasten · Jom Kippur", pagerD:"Kinder und Fasten",
+    eyebrowD:"Chinuch · חינוך",
+    titleD:"Ab welchem Alter wird gefastet?",
+    ledeD:"Kinder und das Fasten an Jom Kippur: ab welchem Alter, wie viele Stunden und was zu tun ist, wenn ein Kind von sich aus fasten möchte.",
+    mythDH:"Eine verbreitete Annahme — und warum sie nicht stimmt",
+    mythDD:"Es heißt oft, ein Kind müsse die drei Fastentage vor seiner Bar- oder Bat-Mizwa fasten. <b>Für diese Regel gibt es keine verbindliche Quelle.</b> Die Anforderungen an Kinder unterscheiden sich von Fastentag zu Fastentag, und Jom Kippur steht für sich: Er ist der strengste und der einzige Fastentag, der von der Tora selbst geboten ist (<span class='heb' lang='he' dir='rtl'>מדאורייתא</span>).",
+    alertDH:"Die Gesundheit des Kindes steht über dem Fasten",
+    alertDD:"Nicht alle Kinder können fasten. Immer wenn irgendeine Gefahr für die Gesundheit des Kindes besteht, ist ihm das Fasten verboten.",
+    creditD:"Nach einem Beitrag von Rabbiner Jehuda Schurpin (Chabad.org). Der Originalartikel enthält die Quellenangaben.",
+    clFail:"Das Widget konnte für Ihren Ort keine Zeiten anzeigen. Öffnen Sie den Zeitplan auf Chabad.org über die Schaltfläche unten und wählen Sie Ihre Stadt von Hand.",
+    geoLabel:"Ihr Gerät:", locale:"de-AT",
+    noteTD2:"Das Widget erkennt die Stadt anhand der IP — über ein VPN oder bei ungenauer Erkennung kann eine fremde Stadt erscheinen. Vergleichen Sie die Stadt in der Tabelle mit der, die Ihr Gerät meldet. Stimmt sie nicht, wählen Sie Ihre Stadt von Hand.",
+    eyebrowK:"Morgen des Erew Jom Kippur",
+    titleK:"Kaporot",
+    ledeK:"Auslösung der Kaporot durch Geld: Man hält den Betrag in der Hand, spricht das Gebet und kreist ihn dreimal über dem Kopf.",
+    donateH:"Pidjon Kaporot — für den Kinder-Chitas",
+    donateD:"Die Auslösung der Kaporot unterstützt MyChitas — die Plattform für das tägliche Chitas-Lernen für Kinder von 6 bis 14 Jahren.",
+    donateB:"Auf mychitas.app spenden",
+    pagerK:"Kaporot", docK:"Kaporot · Erew Jom Kippur",
+    eyebrow1:"Checkliste · 9. Tischrej 5787",
+    title1:"Erinnerungen für Erew Jom Kippur 5787",
+    pub:"Herausgegeben vom Halacha-Institut Chabad",
+    credit:"Übersetzung von Chitasclub mit Hilfe von Claude",
+    statLabel:"Erledigt", reset:"Alle Häkchen zurücksetzen",
+    eyebrow2:"Vor „Kol Nidre“",
+    title2:"Segen für die Kinder",
+    lede2:"Der Vater, im Kittel und in den Tallit gehüllt, legt die Hände auf den Kopf des Kindes und segnet es, bevor er in die Synagoge geht.",
+    pagerNext:"Segen für die Kinder", pagerBack:"Zurück zur Checkliste",
+    blessing:"Gmar Chatima Towa! 🕯️",
+    footNote:"Die Häkchen werden in diesem Browser gespeichert.",
+    toastReset:"Häkchen zurückgesetzt", of:"von",
+    share:"Teilen",
+    shareTitle:"Erew Jom Kippur 5787",
+    shareText:"Erinnerungen für Erew Jom Kippur: Checkliste, Kaporot und Segen für die Kinder — auf Russisch und Deutsch.",
+    toastCopied:"Link kopiert",
+    docList:"Erew Jom Kippur 5787", docBracha:"Segen für die Kinder · Jom Kippur"}
+};
+
+const LIST = [
+  {id:"s1", h:{ru:"Утренние задачи", de:"Aufgaben am Morgen"},
+   items:[
+     {id:"a1", t:{ru:"Первое погружение в микву", de:"Erstes Eintauchen in die Mikwe"},
+      d:{ru:"Некоторые окунаются перед Капарот", de:"Manche tauchen vor den Kaporot unter"}},
+     {id:"a2", t:{ru:"Капарот / выкуп Капарот", de:"Kaporot / Auslösung der Kaporot"},
+      d:{ru:"Выполнение заповеди Капарот или выкуп через цдаку", de:"Erfüllung der Mizwa der Kaporot oder Auslösung durch Zedaka"},
+      jump:{ru:"Открыть текст и молитву капарот", de:"Text und Gebet der Kaporot öffnen"}, to:"kaporot"},
+     {id:"a3", t:{ru:"Надеть субботнюю одежду", de:"Schabbatkleidung anziehen"}, d:null}
+   ]},
+  {id:"s2", h:{ru:"Обычай наших Ребе: утренняя молитва и после неё", de:"Brauch unserer Rebbeim: Schacharit und danach"},
+   items:[
+     {id:"b1", t:{ru:"Особая утренняя молитва (шахрит)", de:"Besonderes Schacharit"},
+      d:{ru:"Пропускаем: «Мизмор ле-тода», тахнун, «Авину Малкейну»", de:"Es entfallen: „Mismor le-Toda“, Tachanun, „Awinu Malkenu“"}},
+     {id:"b2", t:{ru:"Три главы Теилим: 118—114", de:"Drei Kapitel Tehillim: 118—114"}, d:null},
+     {id:"b3", t:{ru:"Взять лекех", de:"Lekach nehmen"},
+      d:{ru:"Просят после шахрит", de:"Man bittet darum nach Schacharit"}}
+   ],
+   callout:{h:{ru:"🚫 Запреты на еду в этот день", de:"🚫 Speiseverbote an diesem Tag"},
+     rows:[
+       {dt:{ru:"Запрещено всем:", de:"Für alle verboten:"}, dd:{ru:"кунжут, мясо скота", de:"Sesam, Fleisch vom Vieh"}},
+       {dt:{ru:"Мужчины не едят:", de:"Männer essen nicht:"}, dd:{ru:"чеснок, яйца", de:"Knoblauch, Eier"}},
+       {dt:{ru:"Разрешено:", de:"Erlaubt:"}, dd:{ru:"молочные блюда в утренней трапезе", de:"Milchspeisen bei der Morgenmahlzeit"}}
+     ]}},
+  {id:"s3", h:{ru:"Трапезы и подготовка к Йом Кипуру", de:"Mahlzeiten und Vorbereitung auf Jom Kippur"},
+   items:[
+     {id:"c1", t:{ru:"Расстелить белую скатерть", de:"Weiße Tischdecke auflegen"},
+      d:{ru:"На столе — как в субботу и праздник", de:"Auf dem Tisch wie am Schabbat und Jom Tow"}},
+     {id:"c2", t:{ru:"Утренняя трапеза", de:"Morgenmahlzeit"},
+      d:{ru:"Обмакнуть ломоть «а-моци» в мёд, есть много — как на два дня", de:"Das Stück ha-Mozi in Honig tauchen, reichlich essen — wie für zwei Tage"}},
+     {id:"c3", t:{ru:"Есть крейплах в течение дня", de:"Krepläch im Laufe des Tages essen"}, d:null},
+     {id:"c4", t:{ru:"Изучение ХиТаТ и Рамбама", de:"Chitat und Rambam lernen"}, d:null},
+     {id:"c5", t:{ru:"Раздавать цдаку весь день", de:"Den ganzen Tag Zedaka geben"},
+      d:{ru:"Особенно перед Минхой — раздавать монеты в кассы цдаки", de:"Besonders vor Mincha Münzen in die Zedaka-Büchsen verteilen"}}
+   ]},
+  {id:"s4", h:{ru:"После полудня — перед наступлением праздника", de:"Am Nachmittag — vor Eintritt des Feiertags"},
+   items:[
+     {id:"d1", t:{ru:"39 ударов (малкот)", de:"39 Malkot (symbolische Geißelung)"},
+      d:{ru:"Лицом на север, кожаным ремнём — по правому плечу, по левому плечу, посередине под ними, и так по кругу. Бьющий и получающий говорят «Ве-hу рахум…» 3 раза", de:"Das Gesicht nach Norden, mit einem Lederriemen auf die rechte Schulter, die linke Schulter und in die Mitte darunter, und so der Reihe nach. Der Schlagende und der Empfangende sagen dreimal „We-hu rachum…“"}},
+     {id:"d2", t:{ru:"Второе погружение в микву", de:"Zweites Eintauchen in die Mikwe"}, d:null},
+     {id:"d3", t:{ru:"Особая молитва Минха", de:"Besonderes Mincha"},
+      d:{ru:"Говорим «Аль хет», без тахнун и без «Авину Малкейну»", de:"Man sagt „Al Chet“, ohne Tachanun und ohne „Awinu Malkenu“"}},
+     {id:"d4", t:{ru:"Завершающая трапеза (сеуда мафсекет)", de:"Abschlussmahlzeit (Seuda Mafseket)"},
+      d:{ru:"Обмакнуть хлеб в мёд, соли — самый минимум, закончить до темноты", de:"Das Brot in Honig tauchen, sehr wenig Salz, vor Einbruch der Dunkelheit beenden"}},
+     {id:"d5", t:{ru:"Третье погружение в микву", de:"Drittes Eintauchen in die Mikwe"},
+      d:{ru:"Закончить до захода солнца", de:"Vor Sonnenuntergang beenden"}}
+   ],
+   versebox:{
+     h:{ru:"«Ве-hу рахум» — говорят 3 раза", de:"„We-hu rachum“ — dreimal sagen"},
+     sub:{ru:"Произносят и бьющий, и получающий, при каждом из трёх ударов",
+          de:"Sowohl der Schlagende als auch der Empfangende sprechen es bei jedem der drei Schläge"},
+     heb:"וְה֤וּא רַח֨וּם ׀ יְכַפֵּ֥ר עָוֺן֮ וְֽלֹא־יַֽ֫שְׁחִ֥ית\n  וְ֭הִרְבָּה לְהָשִׁ֣יב אַפּ֑וֹ\n    וְלֹא־יָ֝עִ֗יר כׇּל־חֲמָתֽוֹ׃",
+     tr:{ru:"Ве-hу рахум йехапэр авон ве-ло яшхит, ве-hирба леhашив апо, ве-ло яир коль хамато.",
+         de:"We-hu rachum jechaper awon we-lo jaschchit, we-hirba lehaschiw apo, we-lo ja'ir kol chamato."},
+     trn:{ru:"А Он, милосердный, прощает грех и не губит; и множество раз отвращал гнев Свой и не пробуждал всей ярости Своей.",
+          de:"Er aber ist barmherzig, vergibt die Schuld und verdirbt nicht; oft wandte Er Seinen Zorn ab und erweckte nicht Seinen ganzen Grimm."},
+     src:{ru:"Теилим 78:38", de:"Tehillim 78:38"}
+   }},
+  {id:"s5", h:{ru:"Подготовка к наступлению Йом Кипура", de:"Vorbereitungen zum Eintritt von Jom Kippur"},
+   items:[
+     {id:"e1", t:{ru:"Проверить карманы одежды", de:"Die Taschen der Kleidung prüfen"},
+      d:{ru:"Убедиться, что в них нет запрещённых вещей", de:"Sicherstellen, dass nichts Verbotenes darin ist"}},
+     {id:"e2", t:{ru:"Снять кожаную обувь", de:"Lederschuhe ausziehen"}, d:null},
+     {id:"e3", t:{ru:"Зажечь свечу памяти (нер нешама)", de:"Neschama-Licht anzünden"},
+      d:{ru:"Тот, у кого умер один из родителей, зажигает дома", de:"Wer einen Elternteil verloren hat, zündet es zu Hause an"}},
+     {id:"e4", t:{ru:"Оставить свет включённым в спальне", de:"Licht im Schlafzimmer brennen lassen"},
+      d:{ru:"Женатая пара должна проследить, чтобы в их комнату попадал свет", de:"Ein Ehepaar achtet darauf, dass Licht in ihr Zimmer fällt"}},
+     {id:"e5", t:{ru:"Зажечь свечу, которая будет гореть до исхода Йом Кипура", de:"Ein Licht anzünden, das bis zum Ausgang von Jom Kippur brennt"},
+      d:{ru:"Чтобы на исходе Йом Кипура благословить «Борэ меорэй а-эш» на огне, который горел весь праздник (нер ше-шават)", de:"Um nach Jom Kippur „Bore Meorej ha-Esch“ über ein Licht zu sprechen, das den ganzen Feiertag gebrannt hat (Ner sche-Schawat)"}},
+     {id:"e6", t:{ru:"Зажечь свечи Йом Кипура", de:"Jom-Kippur-Kerzen zünden"},
+      d:{ru:"С благословением и с благословением «Шеэхеяну»", de:"Mit Beracha und mit „Schehechejanu“"}},
+     {id:"e7", t:{ru:"Зажечь свечу жизни (нер хаим)", de:"Ner Chaim (Lebenslicht) anzünden"},
+      d:{ru:"Приносят в синагогу и отдают габаю, чтобы он зажёг", de:"Man bringt es in die Synagoge und gibt es dem Gabbai zum Anzünden"}},
+     {id:"e8", t:{ru:"Надеть китель", de:"Kittel anlegen"},
+      d:{ru:"Начиная со второго года после свадьбы", de:"Ab dem zweiten Jahr nach der Hochzeit"}},
+     {id:"e9", t:{ru:"Облачиться в талит", de:"In den Tallit hüllen"},
+      d:{ru:"Благословить нужно до захода солнца (если зашло — благословение не произносят)", de:"Die Beracha muss vor Sonnenuntergang gesprochen werden (danach ohne Beracha)"}},
+     {id:"e10", t:{ru:"Благословить сыновей и дочерей", de:"Söhne und Töchter segnen"},
+      d:{ru:"Перед «Коль нидрей», в кителе и облачённым в талит", de:"Vor „Kol Nidre“, im Kittel und in den Tallit gehüllt"},
+      jump:{ru:"Открыть текст благословения", de:"Text des Segens öffnen"}},
+     {id:"e11", t:{ru:"Сказать видуй наедине", de:"Widui allein sprechen"},
+      d:{ru:"Начать нужно до захода солнца", de:"Man muss vor Sonnenuntergang beginnen"}}
+   ]}
+];
+
+const KAPOROT = [
+  {head:{heb:"סכום פדיון כפרות",
+     trn:{ru:"Сумма выкупа капарот", de:"Betrag der Kaporot-Auslösung"}},
+   verses:[
+     {cls:"note", heb:"באפשרותכם לתרום כל סכום שתבחרו כפי נדבת ליבכם.",
+      trn:{ru:"Вы можете пожертвовать любую сумму — по велению вашего сердца.",
+           de:"Sie können jeden Betrag spenden, wie es Ihr Herz Ihnen eingibt."}},
+     {cls:"", pre:true, heb:"לכתחילה טוב לתת לכל הפחות שווי עוף\n(כ-36 ₪) עבור כל נפש מבני בבית.",
+      trn:{ru:"Изначально хорошо дать по меньшей мере стоимость курицы\n(ок. 36 ₪) за каждую душу из домочадцев.",
+           de:"Von vornherein ist es gut, mindestens den Gegenwert eines Huhns\n(ca. 36 ₪) für jede Seele im Haushalt zu geben."}}
+   ]},
+
+  {head:{heb:"נוסח תפילת פדיון כפרות",
+     trn:{ru:"Текст молитвы выкупа капарот", de:"Text des Gebets zur Kaporot-Auslösung"}},
+   rubric:{heb:"מחזיקים ביד סכום כסף ואומרים:",
+     trn:{ru:"Держат в руке сумму денег и говорят:", de:"Man hält den Geldbetrag in der Hand und sagt:"}},
+   verses:[
+     {cls:"", heb:"בְּנֵי אָדָם יוֹשְׁבֵי חשֶׁךְ וְצַלְמָוֶת אֲסִירֵי עֳנִי וּבַרְזֶל: יוֹצִיאֵם מֵחשֶׁךְ וְצַלְמָוֶת וּמוֹסְרוֹתֵיהֶם יְנַתֵּק:",
+      trn:{ru:"Сыны человеческие, сидящие во тьме и смертной тени, узники нищеты и железа. Выведет Он их из тьмы и смертной тени и расторгнет узы их.",
+           de:"Menschenkinder, die in Finsternis und Todesschatten sitzen, gefangen in Elend und Eisen. Er führt sie heraus aus Finsternis und Todesschatten und zerreißt ihre Fesseln."}},
+     {cls:"", heb:"אֱוִילִים מִדֶּרֶךְ פִּשְׁעָם וּמֵעֲוֹנֹתֵיהֶם יִתְעַנּוּ: כָּל אֹכֶל תְּתַעֵב נַפְשָׁם וַיַּגִּיעוּ עַד שַׁעֲרֵי מָוֶת:",
+      trn:{ru:"Глупцы страдают из-за пути преступлений своих и из-за грехов своих. Всякую пищу отвергает душа их, и доходят они до врат смерти.",
+           de:"Toren leiden wegen des Weges ihrer Vergehen und wegen ihrer Sünden. Jede Speise verabscheut ihre Seele, und sie gelangen bis an die Pforten des Todes."}},
+     {cls:"", heb:"וַיִּזְעֲקוּ אֶל אֲדוֹנָי בַּצַּר לָהֶם מִמְּצוּקוֹתֵיהֶם יוֹשִׁיעֵם: יִשְׁלַח דְּבָרוֹ וְיִרְפָּאֵם וִימַלֵּט מִשְּׁחִיתוֹתָם:",
+      trn:{ru:"И воззвали они ко Всевышнему в беде своей — от бедствий их Он спасает их. Пошлёт слово Своё и исцелит их, и избавит их от могил их.",
+           de:"Und sie schrien zum Ewigen in ihrer Not — aus ihren Bedrängnissen rettet Er sie. Er sendet Sein Wort und heilt sie und befreit sie aus ihren Gruben."}},
+     {cls:"", heb:"יוֹדוּ לַדוֹנָי חַסְדּוֹ וְנִפְלְאוֹתָיו לִבְנֵי אָדָם: אִם יֵשׁ עָלָיו מַלְאָךְ מֵלִיץ אֶחָד מִנִּי אָלֶף. לְהַגִּיד לְאָדָם יָשְׁרוֹ: וַיְחֻנֶּנּוּ וַיֹּאמֶר פְּדָעֵהוּ מֵרֶדֶת שַׁחַת מָצָאתִי כֹפֶר:",
+      trn:{ru:"Да возблагодарят Всевышнего за милость Его и за чудеса Его для сынов человеческих. Если есть при нём ангел-заступник, один из тысячи, чтобы поведать человеку правоту его, — то помилует Он его и скажет: «Избавь его от нисхождения в могилу, Я нашёл выкуп».",
+           de:"Sie sollen dem Ewigen danken für Seine Güte und für Seine Wunder an den Menschenkindern. Wenn ein Engel für ihn eintritt, ein Fürsprecher, einer unter tausend, um dem Menschen seine Aufrichtigkeit zu bezeugen — so ist Er ihm gnädig und spricht: „Erlöse ihn vom Hinabsteigen in die Grube, Ich habe ein Lösegeld gefunden.“"}}
+   ]},
+
+  {rubric:{heb:"מסובבים את הכסף 3 פעמים מעל הראש וממשיכים לומר",
+     trn:{ru:"Обводят деньги 3 раза над головой и продолжают говорить:",
+          de:"Man kreist das Geld dreimal über dem Kopf und fährt fort zu sprechen:"}},
+   verses:[
+     {cls:"lead", heb:"זֶה חֲלִיפָתִי זֶה תְּמוּרָתִי זֶה כַּפָּרָתִי זֶה הַכֶּסֶף יֵלֵךְ לִצְדָקָה וַאֲנִי אֵלֵךְ לְחַיִּים טוֹבִים אֲרֻכִּים וּלְשָׁלוֹם.",
+      trn:{ru:"Это моя замена, это моё возмещение, это моё искупление. Эти деньги пойдут на цдаку, а я пойду к доброй, долгой и мирной жизни.",
+           de:"Dies ist mein Ersatz, dies ist meine Vertauschung, dies ist meine Sühne. Dieses Geld geht zur Zedaka, und ich gehe zu einem guten, langen und friedlichen Leben."}}
+   ]},
+
+  {rubric:null,
+   verses:[
+     {cls:"note", heb:"המנהג לערוך את הטקס ולומר את התפילה 3 פעמים. לאחר מכן, תרמו את 'פדיון הכפרות' דרך האתר בביט או כרטיס אשראי!",
+      trn:{ru:"Обычай — провести обряд и произнести молитву 3 раза. После этого пожертвуйте «пидьон капарот» через сайт — через Bit или банковской картой!",
+           de:"Der Brauch ist, die Zeremonie durchzuführen und das Gebet dreimal zu sprechen. Spenden Sie danach das „Pidjon ha-Kaporot“ über die Website — per Bit oder Kreditkarte!"}},
+     {cls:"note", heb:"(בכסף שסובבתם מעל הראש ניתן להשתמש בו כרצונכם)",
+      trn:{ru:"(Деньгами, которыми обводили над головой, можно пользоваться по своему усмотрению.)",
+           de:"(Das Geld, das Sie über dem Kopf gekreist haben, dürfen Sie nach Belieben verwenden.)"}}
+   ]}
+];
+
+const BRACHA = [
+  {rubric:{heb:"מניח את ידיו על ראשו של הבן ואומר:",
+     trn:{ru:"Кладёт руки на голову сына и говорит:", de:"Er legt seine Hände auf den Kopf des Sohnes und sagt:"}},
+   verses:[
+     {cls:"lead", heb:"יְשִׂמְךָ אֱלֹהִים כְּאֶפְרַיִם וְכִמְנַשֶּׁה",
+      trn:{ru:"Да сделает тебя Б-г подобным Эфраиму и Менаше.", de:"Gott mache dich wie Efraim und wie Menasche."}}
+   ]},
+  {rubric:{heb:"ולבת:",
+     trn:{ru:"А дочери:", de:"Und für die Tochter:"}},
+   verses:[
+     {cls:"lead", heb:"יְשִׂימֵךְ אֱלֹהִים כְּשָׂרָה, רִבְקָה, רָחֵל וְלֵאָה",
+      trn:{ru:"Да сделает тебя Б-г подобной Саре, Ривке, Рахели и Лее.", de:"Gott mache dich wie Sara, Riwka, Rachel und Lea."}}
+   ]},
+  {rubric:{heb:"וממשיך:",
+     trn:{ru:"И продолжает:", de:"Und fährt fort:"}},
+   verses:[
+     {cls:"", heb:"וַיְדַבֵּר אֲדֹנָי אֶל מֹשֶׁה לֵּאמֹר. דַּבֵּר אֶל אַהֲרֹן וְאֶל בָּנָיו לֵאמֹר, כֹּה תְבָרְכוּ אֶת בְּנֵי יִשְׂרָאֵל אָמוֹר לָהֶם. יְבָרֶכְךָ אֲדֹנָי וְיִשְׁמְרֶךָ. יָאֵר אֲדֹנָי פָּנָיו אֵלֶיךָ וִיחֻנֶּךָּ. יִשָּׂא אֲדֹנָי פָּנָיו אֵלֶיךָ וְיָשֵׂם לְךָ שָׁלוֹם. וְשָׂמוּ אֶת שְׁמִי עַל בְּנֵי יִשְׂרָאֵל, וַאֲנִי אֲבָרְכֵם.",
+      trn:{ru:"И говорил Всевышний Моше так: «Скажи Аарону и сыновьям его: так благословляйте сынов Израиля, говорите им: „Да благословит тебя Всевышний и охранит тебя. Да озарит Всевышний лик Свой для тебя и помилует тебя. Да обратит Всевышний лик Свой к тебе и дарует тебе мир“. И возложат имя Моё на сынов Израиля, и Я благословлю их».",
+           de:"Und der Ewige sprach zu Mosche: „Sprich zu Aharon und zu seinen Söhnen: So sollt ihr die Kinder Israels segnen, sprecht zu ihnen: ‚Der Ewige segne dich und behüte dich. Der Ewige lasse Sein Angesicht über dir leuchten und sei dir gnädig. Der Ewige erhebe Sein Angesicht zu dir und gebe dir Frieden.‘ Und sie sollen Meinen Namen auf die Kinder Israels legen, und Ich werde sie segnen.“"}}
+   ]},
+  {rubric:null,
+   verses:[
+     {cls:"note", heb:"ברגע המרגש הזה, כל הורה מוסיף תפילות ובקשות אישיות עבור הילדים לפי מה שבליבו. רבים נוהגים לומר את התפילה הזו:",
+      trn:{ru:"В эту волнующую минуту каждый родитель добавляет свои молитвы и личные просьбы за детей — по тому, что у него на сердце. Многие имеют обычай говорить такую молитву:",
+           de:"In diesem bewegenden Augenblick fügt jeder Elternteil eigene Gebete und persönliche Bitten für die Kinder hinzu — so, wie es ihm im Herzen liegt. Viele haben den Brauch, dieses Gebet zu sprechen:"}},
+     {cls:"", heb:"יְהִי רָצוֹן מִלִפְנֵי אָבִינוּ שֶׁבַּשָׁמַיִם, שֶׁיִתֵּן בְּלִבְּךָ אַהֲבָתוֹ וְיִרְאָתוֹ, וּתְהֵא יִרְאַת הַשֵׁם עַל פָּנֶיךָ כָּל יְמֵי חַיֶיךָ שֶׁלֹּא תֶחֱטָא, וִיהֵא חֶשְׁקְךָ בַּתּוֹרָה וּבַמִצְוֹת.",
+      trn:{ru:"Да будет воля Отца нашего Небесного, чтобы вложил Он в сердце твоё любовь к Нему и трепет пред Ним, и да будет трепет пред Всевышним на лице твоём во все дни жизни твоей, чтобы ты не грешил, и да будет влечение твоё — к Торе и заповедям.",
+           de:"Möge es der Wille unseres Vaters im Himmel sein, dass Er Seine Liebe und Seine Ehrfurcht in dein Herz lege, und dass die Ehrfurcht vor dem Ewigen auf deinem Angesicht sei alle Tage deines Lebens, damit du nicht sündigst, und dass dein Verlangen der Tora und den Mizwot gelte."}},
+     {cls:"", heb:"עֵינֶיךָ לְנֹכַח יַבִּיטוּ, פִּיךָ יְדַבֵּר חָכְמוֹת, וְלִבְּךָ יֶהְגֶּה אֵימוֹת, יָדֶיךָ תִּהְיֶינָה עוֹסְקוֹת בְּמִצְוֹת, רַגְלֶיךָ יָרוּצוּ לַעֲשׂוֹת רְצוֹן אָבִיךָ שֶׁבַּשָׁמַיִם.",
+      trn:{ru:"Глаза твои пусть смотрят прямо, уста твои пусть говорят слова мудрости, сердце твоё пусть размышляет в благоговении, руки твои пусть будут заняты заповедями, ноги твои пусть спешат исполнять волю Отца твоего Небесного.",
+           de:"Deine Augen sollen geradeaus blicken, dein Mund soll Worte der Weisheit sprechen, dein Herz soll in Ehrfurcht sinnen, deine Hände sollen mit Mizwot beschäftigt sein, deine Füße sollen eilen, den Willen deines Vaters im Himmel zu tun."}},
+     {cls:"", heb:"וְיִתֶּן לְךָ בָּנִים וּבָנוֹת צַדִּיקִים וְצִדְקָנִיוֹת עוֹסְקִים בַּתּורָה וּבְמִצְוֹת כָּל יְמֵיהֶם.",
+      trn:{ru:"И да даст Он тебе сыновей и дочерей праведных, занятых Торой и заповедями все дни их.",
+           de:"Und Er gebe dir gerechte Söhne und gerechte Töchter, die sich alle ihre Tage mit Tora und Mizwot befassen."}},
+     {cls:"", heb:"וִיהִי מְקוֹרְךָ בָּרוּךְ, וְיַזְמִין לְךָ פַּרְנָסָתְךָ בְּהֶתֵּר וּבְנַחַת וּבְרֶוַח מִתַּחַת יָדוֹ הָרְחָבָה וְלֹא עַל יְדֵי מַתְּנַת בָּשָׂר וָדָם, פַּרְנָסָה שֶׁתְּהֵא פָּנוּי לַעֲבוֹדַת הַשֵׁם.",
+      trn:{ru:"И да будет источник твой благословен, и да пошлёт Он тебе пропитание дозволенным путём, в покое и в достатке, из щедрой руки Своей, а не через дар из плоти и крови, — пропитание, при котором ты будешь свободен для служения Всевышнему.",
+           de:"Und dein Quell sei gesegnet, und Er bereite dir deinen Unterhalt auf erlaubte Weise, in Ruhe und in Fülle, aus Seiner offenen Hand und nicht durch die Gabe von Fleisch und Blut — einen Unterhalt, bei dem du frei bist für den Dienst des Ewigen."}},
+     {cls:"lead", heb:"וְתִכָּתֵב וְתֵּחָתֵם לְחַיִּים טוֹבִים וַאֲרֻכִּים בְּתוֹךְ כָּל צַדִּיקֵי יִשְֹרָאֵל, אָמֵן.",
+      trn:{ru:"И да будешь ты записан и скреплён печатью на добрую и долгую жизнь среди всех праведников Израиля. Амен.",
+           de:"Und du mögest eingeschrieben und besiegelt werden zu einem guten und langen Leben inmitten aller Gerechten Israels. Amen."}}
+   ]}
+];
+
+/* ===== Пост и здоровье · по материалу Chitasclub, сост. р. М.-М. Гарель ===== */
+const FAST = [
+ {h:{ru:"Принцип пикуах нефеш",de:"Das Prinzip Pikuach Nefesch"},
+  src:"סימן תרי\"ח סעיף א', י\"ג / סימן שכ\"ח סעיף ב'",
+  cards:[
+   {t:{ru:"Сомнение = Уверенность",de:"Zweifel = Gewissheit"},heb:"ספק פיקוח נפש",
+    d:{ru:"Если человек заявляет: «Мне нужно поесть» из-за болезни, или спасатель (<span class='heb' lang='he' dir='rtl'>איש הצלה</span>) определяет состояние как возможное расстройство, угрожающее жизни, — <b>пациента кормят немедленно, без промедления</b>.",
+       de:"Wenn ein Mensch wegen einer Krankheit sagt: „Ich muss essen“, oder wenn ein Rettungssanitäter (<span class='heb' lang='he' dir='rtl'>איש הצלה</span>) den Zustand als mögliche Lebensgefahr einstuft — <b>wird der Kranke sofort und ohne Verzögerung gespeist</b>."}},
+   {t:{ru:"Скрытая угроза",de:"Verborgene Gefahr"},heb:"הכבדת החולי",
+    d:{ru:"Даже если прямая угроза неочевидна, но пост может усугубить болезнь и привести к опасности в будущем, <b>прерывание поста является строго обязательным</b>.",
+       de:"Auch wenn keine unmittelbare Gefahr erkennbar ist, das Fasten die Krankheit aber verschlimmern und später zu Gefahr führen kann, ist <b>das Brechen des Fastens strikt geboten</b>."}}
+  ],
+  quote:{ru:"Спешащий [спасти жизнь] заслуживает похвалы (<span class='heb' lang='he' dir='rtl'>הזריז הרי זה משובח</span>), а задающий вопросы — проливает кровь (<span class='heb' lang='he' dir='rtl'>והשואל הרי זה שופך דמים</span>).",
+         de:"Wer eilt [ein Leben zu retten], ist zu loben (<span class='heb' lang='he' dir='rtl'>הזריז הרי זה משובח</span>), wer erst fragt, vergießt Blut (<span class='heb' lang='he' dir='rtl'>והשואל הרי זה שופך דמים</span>)."}},
+
+ {h:{ru:"Механика «Шиурим» — порционное питание",de:"Die Mechanik der „Schiurim“ — portionsweises Essen"},
+  src:"סימן תרי\"ח סעיף י\"ג",
+  cards:[
+   {t:{ru:"Цель",de:"Ziel"},heb:"",
+    d:{ru:"Избежать нарушения запрета Торы (<span class='heb' lang='he' dir='rtl'>כרת</span> — Карет). Больному дают пищу минимальными порциями (<span class='heb' lang='he' dir='rtl'>מעט מעט</span>).",
+       de:"Die Übertretung des Tora-Verbots vermeiden (<span class='heb' lang='he' dir='rtl'>כרת</span> — Karet). Dem Kranken wird die Speise in kleinsten Portionen gegeben (<span class='heb' lang='he' dir='rtl'>מעט מעט</span>)."}},
+   {t:{ru:"Баланс",de:"Gleichgewicht"},heb:"",
+    d:{ru:"Человек получает ровно то количество энергии, которое необходимо для поддержания жизни, формально не выходя из статуса постящегося.",
+       de:"Der Mensch erhält genau so viel Energie, wie zur Erhaltung des Lebens nötig ist, ohne formal aus dem Status des Fastenden herauszutreten."}},
+   {t:{ru:"Ограничения",de:"Einschränkungen"},heb:"",
+    d:{ru:"Тому, кому разрешено только пить (<span class='heb' lang='he' dir='rtl'>שתיה</span>), строго запрещено есть (<span class='heb' lang='he' dir='rtl'>אכילה</span>). Как только состояние стабилизировалось — приём пищи прекращается.",
+       de:"Wem nur das Trinken erlaubt ist (<span class='heb' lang='he' dir='rtl'>שתיה</span>), dem ist das Essen streng verboten (<span class='heb' lang='he' dir='rtl'>אכילה</span>). Sobald sich der Zustand stabilisiert hat, wird die Nahrungsaufnahme beendet."}}
+  ]},
+
+ {h:{ru:"Объёмы порций",de:"Größe der Portionen"},
+  src:"בית ההוראה 'אוצר הפוסקים' / סימן תרי\"ח",
+  cards:[
+   {big:1,t:{ru:"~30 мл",de:"~30 ml"},heb:"",
+    d:{ru:"<b>Питьё (<span class='heb' lang='he' dir='rtl'>שתיה</span>).</b> Рекомендуется заранее подготовить маленькие пакетики с жидкостью «попсис» (<span class='heb' lang='he' dir='rtl'>פופסים</span>) — в каждом содержится около 29 мл.",
+       de:"<b>Trinken (<span class='heb' lang='he' dir='rtl'>שתיה</span>).</b> Es empfiehlt sich, kleine Flüssigkeitsbeutel „Popsim“ (<span class='heb' lang='he' dir='rtl'>פופסים</span>) vorzubereiten — jeder enthält etwa 29 ml."}},
+   {big:1,t:{ru:"30 куб. см",de:"30 cm³"},heb:"",
+    d:{ru:"<b>Еда (<span class='heb' lang='he' dir='rtl'>מאכל</span>).</b> Измеряется исключительно в объёме (<span class='heb' lang='he' dir='rtl'>נפח</span>), а не в весе (<span class='heb' lang='he' dir='rtl'>משקל</span>).",
+       de:"<b>Speise (<span class='heb' lang='he' dir='rtl'>מאכל</span>).</b> Gemessen wird ausschließlich im Volumen (<span class='heb' lang='he' dir='rtl'>נפח</span>), nicht im Gewicht (<span class='heb' lang='he' dir='rtl'>משקל</span>)."}}
+  ],
+  quote:{ru:"<b>Правило интеграции</b> (<span class='heb' lang='he' dir='rtl'>אין מצטרפין</span>): объёмы еды и питья не суммируются. Разрешено одновременно съесть порцию еды (30 куб. см) и выпить порцию жидкости (30 мл).",
+         de:"<b>Regel der Zusammenrechnung</b> (<span class='heb' lang='he' dir='rtl'>אין מצטרפין</span>): Die Mengen von Speise und Trank werden nicht zusammengerechnet. Man darf gleichzeitig eine Portion Speise (30 cm³) essen und eine Portion Flüssigkeit (30 ml) trinken."}},
+
+ {h:{ru:"Практические эквиваленты",de:"Praktische Entsprechungen"},
+  src:"פוסקי זמננו",
+  cards:[
+   {t:{ru:"Печенье «Птибер»",de:"Kekse „Petit Beurre“"},heb:"אוסם",
+    d:{ru:"1,5 печенья",de:"1,5 Kekse"}},
+   {t:{ru:"Машинная маца",de:"Maschinen-Mazza"},heb:"מצת מכונה",
+    d:{ru:"1/3 листа",de:"1/3 Blatt"}},
+   {t:{ru:"Молочный шоколад",de:"Milchschokolade"},heb:"עלית",
+    d:{ru:"8 классических кубиков",de:"8 klassische Würfel"}},
+   {t:{ru:"Халва без сахара",de:"Halva ohne Zucker"},heb:"אחווה",
+    d:{ru:"весом 22–28 г — 1 единица. Или сыр/творог — заполнить мерный стаканчик объёмом 30 куб. см.",
+       de:"mit einem Gewicht von 22–28 g — 1 Einheit. Oder Käse/Quark — einen Messbecher von 30 cm³ füllen."}}
+  ],
+  note:{ru:"Галаха не требует подмешивать горечь (<span class='heb' lang='he' dir='rtl'>פוגם</span>) в порции еды или питья.",
+        de:"Die Halacha verlangt nicht, den Portionen von Speise oder Trank etwas Bitteres (<span class='heb' lang='he' dir='rtl'>פוגם</span>) beizumischen."}},
+
+ {h:{ru:"Интервалы между порциями",de:"Abstände zwischen den Portionen"},
+  src:"הלכות יום הכיפורים סימן תרי\"ח",
+  cards:[
+   {big:1,t:{ru:"9 минут",de:"9 Minuten"},heb:"",
+    d:{ru:"Идеальный интервал (<span class='heb' lang='he' dir='rtl'>לכתחילה</span>). Стандартное время ожидания от конца одной порции до начала следующей.",
+       de:"Der ideale Abstand (<span class='heb' lang='he' dir='rtl'>לכתחילה</span>). Übliche Wartezeit vom Ende einer Portion bis zum Beginn der nächsten."}},
+   {big:1,t:{ru:"4 минуты",de:"4 Minuten"},heb:"",
+    d:{ru:"При необходимости (<span class='heb' lang='he' dir='rtl'>בשעת הדחק</span>).",
+       de:"Im Bedarfsfall (<span class='heb' lang='he' dir='rtl'>בשעת הדחק</span>)."}},
+   {big:1,t:{ru:"2 минуты",de:"2 Minuten"},heb:"",
+    d:{ru:"В случае острой медицинской необходимости (<span class='heb' lang='he' dir='rtl'>צורך גדול</span>).",
+       de:"Bei dringender medizinischer Notwendigkeit (<span class='heb' lang='he' dir='rtl'>צורך גדול</span>)."}}
+  ],
+  quote:{ru:"Умный предвидит (<span class='heb' lang='he' dir='rtl'>החכם עיניו בראשו</span>). Начинайте питаться по Шиурим (<span class='heb' lang='he' dir='rtl'>שיעורים</span>) с самого начала поста. Не дожидайтесь ухудшения состояния и прямой опасности.",
+         de:"Der Kluge sieht voraus (<span class='heb' lang='he' dir='rtl'>החכם עיניו בראשו</span>). Beginnen Sie von Anfang des Fastens an, nach Schiurim (<span class='heb' lang='he' dir='rtl'>שיעורים</span>) zu essen. Warten Sie nicht, bis sich der Zustand verschlechtert und Gefahr entsteht."}},
+
+ {h:{ru:"Дни после родов: пост и кормление",de:"Tage nach der Geburt: Fasten und Ernährung"},
+  src:"סימן תרי\"ח סעיף י\"א-י\"ב",
+  cards:[
+   {t:{ru:"0–3 дня",de:"0–3 Tage"},heb:"תוך ג' ימים",
+    d:{ru:"<b>Статус:</b> не постится вообще.<br><b>Действие:</b> кормить по <span class='heb' lang='he' dir='rtl'>שיעורים</span> даже принудительно (<span class='heb' lang='he' dir='rtl'>בעל כרחה</span>), даже если она утверждает, что не нуждается в пище.",
+       de:"<b>Status:</b> fastet überhaupt nicht.<br><b>Handlung:</b> nach <span class='heb' lang='he' dir='rtl'>שיעורים</span> speisen, auch gegen ihren Willen (<span class='heb' lang='he' dir='rtl'>בעל כרחה</span>), selbst wenn sie sagt, sie brauche keine Nahrung."}},
+   {t:{ru:"3–7 дней",de:"3–7 Tage"},heb:"",
+    d:{ru:"<b>Статус:</b> пограничный период.<br><b>Действие:</b> если роженица говорит «Мне нужно поесть» (<span class='heb' lang='he' dir='rtl'>צריכה אני אני לאכול</span>) — кормить немедленно по <span class='heb' lang='he' dir='rtl'>שיעורים</span>, даже если врачи утверждают обратное.",
+       de:"<b>Status:</b> Grenzzeitraum.<br><b>Handlung:</b> Sagt die Wöchnerin „Ich muss essen“ (<span class='heb' lang='he' dir='rtl'>צריכה אני אני לאכול</span>) — sofort nach <span class='heb' lang='he' dir='rtl'>שיעורים</span> speisen, auch wenn die Ärzte das Gegenteil behaupten."}},
+   {t:{ru:"Более 7 дней",de:"Mehr als 7 Tage"},heb:"",
+    d:{ru:"<b>Статус:</b> приравнивается к статусу обычного больного.<br><b>Действие:</b> если присутствует болезнь (<span class='heb' lang='he' dir='rtl'>לאו דווקא מחמת הלידה</span>) — кормить согласно правилам <span class='heb' lang='he' dir='rtl'>שיעורים</span>.",
+       de:"<b>Status:</b> wird dem Status eines gewöhnlichen Kranken gleichgestellt.<br><b>Handlung:</b> Liegt eine Krankheit vor (<span class='heb' lang='he' dir='rtl'>לאו דווקא מחמת הלידה</span>) — nach den Regeln der <span class='heb' lang='he' dir='rtl'>שיעורים</span> speisen."}}
+  ]},
+
+ {h:{ru:"Беременные и кормящие",de:"Schwangere und Stillende"},
+  src:"שו\"ע אדה\"ז הלכות יום הכיפורים",
+  cards:[
+   {t:{ru:"Беременные",de:"Schwangere"},heb:"מעוברות",
+    d:{ru:"<b>Базовое правило:</b> постятся как все.<br><b>Исключения</b> (пить немедленно по <span class='heb' lang='he' dir='rtl'>שיעורים</span>): беременность в группе риска, низкий гемоглобин, гестационный диабет (<span class='heb' lang='he' dir='rtl'>סכרת הריון</span>), появление схваток (<span class='heb' lang='he' dir='rtl'>צירים</span>) или любое ухудшение состояния.",
+       de:"<b>Grundregel:</b> fasten wie alle.<br><b>Ausnahmen</b> (sofort nach <span class='heb' lang='he' dir='rtl'>שיעורים</span> trinken): Risikoschwangerschaft, niedriger Hämoglobinwert, Schwangerschaftsdiabetes (<span class='heb' lang='he' dir='rtl'>סכרת הריון</span>), einsetzende Wehen (<span class='heb' lang='he' dir='rtl'>צירים</span>) oder jede Verschlechterung des Zustands."}},
+   {t:{ru:"Кормящие",de:"Stillende"},heb:"מניקות",
+    d:{ru:"<b>Базовое правило:</b> постятся как все.<br><b>Исключения:</b> если ребёнок находится на полном грудном вскармливании (<span class='heb' lang='he' dir='rtl'>הנקה מלאה</span>) и молоко пропадает — матери необходимо пить по <span class='heb' lang='he' dir='rtl'>שיעורים</span> (заменители не давать). Если младенец уже привык к смесям — матери пить запрещено.",
+       de:"<b>Grundregel:</b> fasten wie alle.<br><b>Ausnahmen:</b> Wird das Kind voll gestillt (<span class='heb' lang='he' dir='rtl'>הנקה מלאה</span>) und die Milch versiegt — muss die Mutter nach <span class='heb' lang='he' dir='rtl'>שיעורים</span> trinken (keine Ersatznahrung geben). Ist der Säugling bereits an Ersatznahrung gewöhnt — ist der Mutter das Trinken verboten."}}
+  ]},
+
+ {h:{ru:"Состояния и действия",de:"Zustände und Handlungen"},
+  src:"פוסקי זמננו בהלכות יוה\"כ",
+  rows:[
+   {t:{ru:"Болезни сердца",de:"Herzkrankheiten"},heb:"חולה לב",
+    d:{ru:"Инфаркт, шунтирование/стентирование за последний год или сердечная недостаточность.",
+       de:"Herzinfarkt, Bypass/Stent im letzten Jahr oder Herzinsuffizienz."},
+    a:{ru:"Пить по <span class='heb' lang='he' dir='rtl'>שיעורים</span> (в некоторых случаях — без ограничений).",
+       de:"Nach <span class='heb' lang='he' dir='rtl'>שיעורים</span> trinken (in manchen Fällen ohne Einschränkung)."}},
+   {t:{ru:"Внутренние органы",de:"Innere Organe"},heb:"כליות, כבד",
+    d:{ru:"Камни в почках, болезни печени, болезнь Крона, бариатрия (<span class='heb' lang='he' dir='rtl'>קיצור קיבה</span>). Обезвоживание критически опасно.",
+       de:"Nierensteine, Lebererkrankungen, Morbus Crohn, bariatrische Operation (<span class='heb' lang='he' dir='rtl'>קיצור קיבה</span>). Austrocknung ist kritisch gefährlich."},
+    a:{ru:"Переход на <span class='heb' lang='he' dir='rtl'>שיעורים</span>.",de:"Übergang zu <span class='heb' lang='he' dir='rtl'>שיעורים</span>."}},
+   {t:{ru:"Острые инфекции",de:"Akute Infektionen"},heb:"",
+    d:{ru:"Воспаление лёгких, рожа (<span class='heb' lang='he' dir='rtl'>שושנה</span>) или экстремально высокая температура (<span class='heb' lang='he' dir='rtl'>חום קיצוני</span>).",
+       de:"Lungenentzündung, Wundrose (<span class='heb' lang='he' dir='rtl'>שושנה</span>) oder extrem hohes Fieber (<span class='heb' lang='he' dir='rtl'>חום קיצוני</span>)."},
+    a:{ru:"Переход на <span class='heb' lang='he' dir='rtl'>שיעורים</span>.",de:"Übergang zu <span class='heb' lang='he' dir='rtl'>שיעורים</span>."}},
+   {t:{ru:"Гемоглобин",de:"Hämoglobin"},heb:"",
+    d:{ru:"Показатель железа (<span class='heb' lang='he' dir='rtl'>ברזל</span>) ниже 9 единиц.",
+       de:"Eisenwert (<span class='heb' lang='he' dir='rtl'>ברזל</span>) unter 9 Einheiten."},
+    a:{ru:"Переход на <span class='heb' lang='he' dir='rtl'>שיעורים</span>.",de:"Übergang zu <span class='heb' lang='he' dir='rtl'>שיעורים</span>."}},
+   {t:{ru:"Диабет",de:"Diabetes"},heb:"סכרת",
+    d:{ru:"Зависит от типа (1 или 2) и степени компенсации.",
+       de:"Hängt vom Typ (1 oder 2) und der Einstellung ab."},
+    a:{ru:"Требует предварительной консультации с врачом и Равом.",
+       de:"Erfordert vorherige Rücksprache mit Arzt und Rav."}},
+   {t:{ru:"Психиатрия",de:"Psychiatrie"},heb:"חולי נפשי",
+    d:{ru:"Пациенты, нуждающиеся в препаратах для психотического баланса.",
+       de:"Patienten, die Medikamente zur psychischen Stabilisierung benötigen."},
+    a:{ru:"Статус: приравниваются к больным, находящимся в прямой опасности (<span class='heb' lang='he' dir='rtl'>סכנה</span>).",
+       de:"Status: werden Kranken in unmittelbarer Gefahr gleichgestellt (<span class='heb' lang='he' dir='rtl'>סכנה</span>)."}},
+   {t:{ru:"Медикаменты",de:"Medikamente"},heb:"תרופות",
+    d:{ru:"Регулярный приём жизненно важных таблеток без вкуса.",
+       de:"Regelmäßige Einnahme lebenswichtiger, geschmackloser Tabletten."},
+    a:{ru:"Принимать без воды (<span class='heb' lang='he' dir='rtl'>ללא מים</span>). Если это физически невозможно — использовать заранее заваренный крепкий горький чай.",
+       de:"Ohne Wasser einnehmen (<span class='heb' lang='he' dir='rtl'>ללא מים</span>). Ist das körperlich nicht möglich — zuvor aufgebrühten, starken bitteren Tee verwenden."}},
+   {t:{ru:"Открытые раны",de:"Offene Wunden"},heb:"פצע זיהומי",
+    d:{ru:"",de:""},
+    a:{ru:"В Йом-Кипур полностью разрешены стерилизация, промывание ран и нанесение лечебных мазей.",
+       de:"An Jom Kippur sind Desinfektion, Wundreinigung und das Auftragen von Heilsalben uneingeschränkt erlaubt."}}
+  ]},
+
+ {h:{ru:"Статус постящегося",de:"Der Status des Fastenden"},
+  src:"פוסקת סימן תרכ\"א ס\"ק א'",
+  quoteTop:{ru:"Человек, вынужденный есть и пить по правилам порций (<span class='heb' lang='he' dir='rtl'>שיעורים</span>) по медицинским показаниям, <b>полностью сохраняет статус постящегося</b> (<span class='heb' lang='he' dir='rtl'>נחשב למתענה</span>).",
+            de:"Wer aus medizinischen Gründen nach den Portionsregeln (<span class='heb' lang='he' dir='rtl'>שיעורים</span>) essen und trinken muss, <b>behält den Status des Fastenden vollständig</b> (<span class='heb' lang='he' dir='rtl'>נחשב למתענה</span>)."},
+  cards:[
+   {t:{ru:"Молитва",de:"Gebet"},heb:"",
+    d:{ru:"Имеет право вести общественную молитву в качестве кантора (<span class='heb' lang='he' dir='rtl'>לגשת ש\"ץ</span>).",
+       de:"Darf als Vorbeter das öffentliche Gebet leiten (<span class='heb' lang='he' dir='rtl'>לגשת ש\"ץ</span>)."}},
+   {t:{ru:"Тора",de:"Tora"},heb:"",
+    d:{ru:"Имеет право получать алию к Торе (<span class='heb' lang='he' dir='rtl'>לעלות לתורה</span>).",
+       de:"Darf zur Tora aufgerufen werden (<span class='heb' lang='he' dir='rtl'>לעלות לתורה</span>)."}}
+  ],
+  note:{ru:"Если медицинская ситуация требует обычного приёма пищи (<span class='heb' lang='he' dir='rtl'>אכילה ממש</span>) — среди поским существует <span class='heb' lang='he' dir='rtl'>מחלוקת</span> (спор). В таком случае желательно избегать роли кантора (Шлиах Цибур).",
+        de:"Erfordert die medizinische Lage ein gewöhnliches Essen (<span class='heb' lang='he' dir='rtl'>אכילה ממש</span>), besteht unter den Poskim eine <span class='heb' lang='he' dir='rtl'>מחלוקת</span> (Meinungsverschiedenheit). In diesem Fall sollte man die Rolle des Vorbeters (Schaliach Zibbur) meiden."}},
+
+ {h:{ru:"Чек-лист подготовки",de:"Checkliste der Vorbereitung"},
+  src:"הנהגות מעשיות",
+  steps:[
+   {t:{ru:"Консультация",de:"Beratung"},heb:"לכתחילה",
+    d:{ru:"Обязательно проконсультироваться с лечащим врачом и задать вопрос Раввину (<span class='heb' lang='he' dir='rtl'>מורה הוראה</span>) <b>до начала поста</b>.",
+       de:"Unbedingt den behandelnden Arzt konsultieren und den Rabbiner (<span class='heb' lang='he' dir='rtl'>מורה הוראה</span>) <b>vor Beginn des Fastens</b> fragen."}},
+   {t:{ru:"Физическая подготовка",de:"Körperliche Vorbereitung"},heb:"",
+    d:{ru:"Для беременных и кормящих: <b>усиленная гидратация</b> за несколько дней до праздника. Приём добавок (миндаль / <span class='heb' lang='he' dir='rtl'>שקדיה</span>, гранатовый сок), использование препаратов типа «Кали Цом». Тренировка приёма таблеток без воды.",
+       de:"Für Schwangere und Stillende: <b>verstärkte Flüssigkeitszufuhr</b> einige Tage vor dem Feiertag. Nahrungsergänzung (Mandeln / <span class='heb' lang='he' dir='rtl'>שקדיה</span>, Granatapfelsaft), Präparate wie „Kali Zom“. Das Einnehmen von Tabletten ohne Wasser üben."}},
+   {t:{ru:"Сохранение энергии в пост",de:"Kräfte während des Fastens schonen"},heb:"",
+    d:{ru:"Главная заповедь — сам пост (<span class='heb' lang='he' dir='rtl'>תענית</span>). Для людей в группе риска правильнее <b>молиться дома и лежать</b>, чем идти в синагогу, истощить силы и быть вынужденным нарушить пост.",
+       de:"Die wichtigste Mizwa ist das Fasten selbst (<span class='heb' lang='he' dir='rtl'>תענית</span>). Für Risikopersonen ist es richtiger, <b>zu Hause zu beten und zu liegen</b>, als in die Synagoge zu gehen, die Kräfte zu erschöpfen und das Fasten brechen zu müssen."}}
+  ]}
+];
+
+/* ===== Дети и пост · по материалу рава Йеуды Шурпина, Chabad.org ===== */
+const KIDS = [
+ {h:{ru:"Обязанность и воспитание",de:"Pflicht und Erziehung"},
+  src:"חובה מול חינוך",
+  cards:[
+   {t:{ru:"Обязанность",de:"Pflicht"},heb:"חובה",
+    d:{ru:"Наступает <b>с 13 лет у мальчиков и с 12 у девочек</b>. С этого возраста ребёнок считается взрослым и обязан поститься во все посты — как часть обязанности соблюдать остальные заповеди Торы.",
+       de:"Beginnt <b>mit 13 Jahren bei Jungen und mit 12 bei Mädchen</b>. Ab diesem Alter gilt das Kind als erwachsen und ist zu allen Fastentagen verpflichtet — als Teil der Pflicht, auch die übrigen Gebote der Tora zu halten."}},
+   {t:{ru:"Воспитание",de:"Erziehung"},heb:"חינוך",
+    d:{ru:"До этого возраста заповеди не обязательны, но <b>родители обязаны приучать</b> ребёнка их исполнять, чтобы он был к ним готов, когда повзрослеет.",
+       de:"Davor sind die Gebote nicht verpflichtend, aber <b>die Eltern sind verpflichtet</b>, das Kind an ihre Erfüllung zu gewöhnen, damit es bereit ist, wenn es erwachsen wird."}}
+  ],
+  note:{ru:"Возраст, с которого начинают приучать, зависит от самой заповеди: девочки зажигают субботние свечи уже с трёх лет и даже раньше; перерыв между мясным и молочным вводят постепенно с года; к сукке приучают только с шести.",
+        de:"Das Alter, ab dem man ein Kind gewöhnt, hängt vom jeweiligen Gebot ab: Mädchen zünden die Schabbatkerzen schon ab drei Jahren und früher; die Wartezeit zwischen Fleischigem und Milchigem führt man ab dem ersten Lebensjahr schrittweise ein; an die Sukka gewöhnt man erst ab sechs."}},
+
+ {h:{ru:"Йом Кипур: по возрастам",de:"Jom Kippur: nach Altersstufen"},
+  src:"באיזה גיל מתחילים לצום ביום כיפור?",
+  cards:[
+   {big:1,t:{ru:"До 9 лет",de:"Bis 9 Jahre"},heb:"",
+    d:{ru:"<b>Не постятся вообще.</b> Приучать ребёнка к посту в Йом Кипур до девяти лет не нужно. По сути, даже если ребёнок хочет поститься сам, это следует предотвратить — но на практике укоренился обычай разрешать ему поститься несколько часов, если он того хочет.",
+       de:"<b>Es wird überhaupt nicht gefastet.</b> Vor dem Alter von neun Jahren muss man ein Kind nicht an das Fasten an Jom Kippur gewöhnen. Im Grundsatz sollte man es sogar davon abhalten, wenn es von sich aus fasten will — in der Praxis hat sich jedoch der Brauch eingebürgert, ihm einige Stunden Fasten zu erlauben, wenn es das möchte."}},
+   {big:1,t:{ru:"9–10 лет",de:"9–10 Jahre"},heb:"",
+    d:{ru:"<b>Частичный пост.</b> Здоровый ребёнок начинает приучаться в девять, более слабый — в десять. В первый раз ребёнок постится всю ночь Йом Кипура, а завтрак ест примерно на час позже обычного. На следующий год добавляют ещё часы, и ребёнок ест уже только к полудню.",
+       de:"<b>Teilweises Fasten.</b> Ein gesundes Kind beginnt mit neun zu üben, ein schwächeres mit zehn. Beim ersten Mal fastet das Kind die ganze Nacht von Jom Kippur und isst sein Frühstück etwa eine Stunde später als sonst. Im folgenden Jahr kommen weitere Stunden hinzu, und das Kind isst erst gegen Mittag."}},
+   {big:1,t:{ru:"11–12 лет",de:"11–12 Jahre"},heb:"",
+    d:{ru:"<b>Полный пост.</b> Среди поским есть спор, приучать ли 11-летнего поститься весь день или только часть. Взвешивать следует по возможностям конкретного ребёнка: здоровые мальчик или девочка постятся весь день, слабые — сколько смогут.",
+       de:"<b>Vollständiges Fasten.</b> Unter den Poskim besteht Uneinigkeit, ob ein Elfjähriger an das Fasten des ganzen Tages oder nur eines Teils gewöhnt werden soll. Abzuwägen ist nach den Kräften des einzelnen Kindes: ein gesunder Junge oder ein gesundes Mädchen fastet den ganzen Tag, schwächere Kinder so viel, wie sie können."}}
+  ],
+  quote:{ru:"Принято считать, что сегодняшние дети слабее прежних. Поэтому <b>большинство детей приучать поститься весь день не обязаны</b>.",
+         de:"Es ist allgemein anerkannt, dass die Kinder von heute als schwächer gelten als die Kinder früherer Zeiten. Daher <b>müssen die meisten Kinder nicht daran gewöhnt werden, den ganzen Tag zu fasten</b>."}}
+];
+
+/* ============================================================ */
+const K_DONE="jk5787.done", K_LANG="jk5787.lang";
+const CHECK='<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.4L6.2 11.6L13 4.8"/></svg>';
+let lang="ru", page="list", done=new Set();
+
+const g=id=>document.getElementById(id);
+function load(k){try{return localStorage.getItem(k)}catch(e){return null}}
+function save(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+
+/* ---------- отрисовка ---------- */
+function renderChrome(){
+  const u=UI[lang];
+  document.documentElement.lang=u.lang;
+  g("brandName").textContent=u.brandName;
+  g("brandSub").textContent=u.brandSub;
+  const labels=document.querySelectorAll(".tab-label");
+  labels[0].textContent=u.tabList;
+  labels[1].textContent=u.tabTimes;
+  labels[2].textContent=u.tabKaporot;
+  labels[3].textContent=u.tabBracha;
+  labels[4].textContent=u.tabFast;
+  labels[5].textContent=u.tabKids;
+  g("eyebrowD").textContent=u.eyebrowD;
+  g("titleD").textContent=u.titleD;
+  g("ledeD").textContent=u.ledeD;
+  g("mythDH").textContent=u.mythDH;
+  g("mythDD").innerHTML=u.mythDD;
+  g("alertDH").textContent=u.alertDH;
+  g("alertDD").textContent=u.alertDD;
+  g("creditD").textContent=u.creditD;
+  g("eyebrowF").textContent=u.eyebrowF;
+  g("titleF").textContent=u.titleF;
+  g("ledeF").textContent=u.ledeF;
+  g("alertFH").textContent=u.alertFH;
+  g("alertFD").textContent=u.alertFD;
+  g("creditF").textContent=u.creditF;
+  const tr=g("medTr"); tr.textContent=u.medTr; tr.hidden=!u.medTr;
+  g("eyebrow1").textContent=u.eyebrow1;
+  g("title1").textContent=u.title1;
+  g("pub").textContent=u.pub;
+  g("credit").textContent=u.credit;
+  g("statLabel").textContent=u.statLabel;
+  g("resetBtn").textContent=u.reset;
+  g("eyebrowT").textContent=u.eyebrowT;
+  g("titleT").textContent=u.titleT;
+  g("ledeT").textContent=u.ledeT;
+  g("noteTH").textContent=u.noteTH;
+  g("noteTD").textContent=u.noteTD2;
+  g("clGeoLabel").textContent=u.geoLabel;
+  paintGeo();
+  g("noteTBtnLabel").textContent=u.noteTBtn;
+  g("warnT").textContent=u.warnT;
+  g("clFail").textContent=u.clFail;
+  g("eyebrowK").textContent=u.eyebrowK;
+  g("titleK").textContent=u.titleK;
+  g("ledeK").textContent=u.ledeK;
+  g("donateH").textContent=u.donateH;
+  g("donateD").textContent=u.donateD;
+  g("donateB").textContent=u.donateB;
+  g("eyebrow2").textContent=u.eyebrow2;
+  g("title2").textContent=u.title2;
+  g("lede2").textContent=u.lede2;
+  g("blessing").textContent=u.blessing;
+  g("footNote").textContent=u.footNote;
+  g("shareLabel").textContent=u.share;
+  g("shareBtn").setAttribute("aria-label",u.share);
+
+  // подписи кнопок «вперёд / назад» на каждой странице
+  const P={list:{next:u.pagerT}, times:{back:u.tabList, next:u.pagerK},
+           kaporot:{back:u.pagerT, next:u.pagerNext},
+           bracha:{back:u.pagerK, next:u.pagerF},
+           fast:{back:u.pagerNext, next:u.pagerD}, kids:{back:u.pagerF}};
+  document.querySelectorAll(".page").forEach(pg=>{
+    const key=pg.id.replace("page-","");
+    const n=pg.querySelector(".p-next"), b=pg.querySelector(".p-back");
+    if(n&&P[key].next)n.textContent=P[key].next;
+    if(b&&P[key].back)b.textContent=P[key].back;
+  });
+  document.title=docTitle();
+}
+function docTitle(){
+  const u=UI[lang];
+  return page==="list"?u.docList : page==="times"?u.docT : page==="kaporot"?u.docK
+       : page==="fast"?u.docF : page==="kids"?u.docD : u.docBracha;
+}
+
+function renderList(){
+  let h="";
+  LIST.forEach((sec,i)=>{
+    h+='<section><div class="sec-head"><span class="sec-num">'+(i+1)+'</span><h2>'
+      + esc(sec.h[lang])+'</h2><span class="sec-line"></span></div><div class="list">';
+    sec.items.forEach(it=>{
+      const dn=done.has(it.id)?"1":"0";
+      h+='<div class="item" data-id="'+it.id+'" data-done="'+dn+'" role="checkbox" tabindex="0" aria-checked="'+(dn==="1")+'">'
+       + '<span class="box">'+CHECK+'</span><span class="txt"><span class="t">'+esc(it.t[lang])+'</span>'
+       + (it.d?'<span class="d">'+esc(it.d[lang])+'</span>':'')
+       + (it.jump?'<button class="jump" type="button" data-go="'+(it.to||"bracha")+'">'+esc(it.jump[lang])+' →</button>':'')
+       + '</span></div>';
+    });
+    h+='</div>';
+    if(sec.callout){
+      h+='<div class="callout"><h3>'+esc(sec.callout.h[lang])+'</h3><dl>';
+      sec.callout.rows.forEach(r=>{h+='<div class="row"><dt>'+esc(r.dt[lang])+'</dt><dd>'+esc(r.dd[lang])+'</dd></div>'});
+      h+='</dl></div>';
+    }
+    if(sec.versebox){
+      const v=sec.versebox;
+      h+='<div class="vbox">'
+       + '<div class="vbox-h">'+esc(v.h[lang])+'</div>'
+       + '<div class="vbox-sub">'+esc(v.sub[lang])+'</div>'
+       + '<div class="vbox-heb" lang="he" dir="rtl">'+esc(v.heb)+'</div>'
+       + '<div class="vbox-tr">'+esc(v.tr[lang])+'</div>'
+       + '<div class="vbox-trn">'+esc(v.trn[lang])+'</div>'
+       + '<div class="vbox-src">'+esc(v.src[lang])+'</div>'
+       + '</div>';
+    }
+    h+='</section>';
+  });
+  g("listContent").innerHTML=h;
+}
+
+function renderScroll(data,target){
+  let h='<div class="scroll">';
+  data.forEach(b=>{
+    h+='<div class="block">';
+    if(b.head){
+      h+='<div class="bhead"><span class="h-trn">'+esc(b.head.trn[lang])+'</span>'
+       + '<span class="h-heb" lang="he" dir="rtl">'+esc(b.head.heb)+'</span></div>';
+    }
+    if(b.rubric){
+      h+='<div class="rubric"><span class="r-trn">'+esc(b.rubric.trn[lang])+'</span>'
+       + '<span class="r-heb" lang="he" dir="rtl">'+esc(b.rubric.heb)+'</span></div>';
+    }
+    b.verses.forEach(v=>{
+      h+='<div class="verse '+v.cls+'"><div class="v-trn">'+esc(v.trn[lang]).replace(/\n/g," ")+'</div>'
+       + '<div class="v-heb'+(v.pre?" pre":"")+'" lang="he" dir="rtl">'+esc(v.heb)+'</div></div>';
+    });
+    h+='</div>';
+  });
+  g(target).innerHTML=h+'</div>';
+}
+
+function renderSections(data,target,finalTxt){
+  let h="";
+  data.forEach(s=>{
+    h+='<section class="med-sec"><div class="med-head"><h2>'+esc(s.h[lang])+'</h2>'
+     + (s.src?'<span class="med-src" lang="he" dir="rtl">'+esc(s.src)+'</span>':'')
+     + '</div><div class="med-rule"></div>';
+    if(s.quoteTop) h+='<div class="med-quote">'+s.quoteTop[lang]+'</div>';
+    if(s.cards){
+      h+='<div class="med-grid">';
+      s.cards.forEach(c=>{
+        h+='<div class="med-card'+(c.big?' big':'')+'"><div class="med-card-t">'+esc(c.t[lang])
+         + (c.heb?' <span class="heb" lang="he" dir="rtl">'+esc(c.heb)+'</span>':'')
+         + '</div><div class="med-card-d">'+c.d[lang]+'</div></div>';
+      });
+      h+='</div>';
+    }
+    if(s.rows){
+      h+='<div class="med-rows">';
+      s.rows.forEach(r=>{
+        h+='<div class="med-row"><div class="med-row-t">'+esc(r.t[lang])
+         + (r.heb?'<span class="heb" lang="he" dir="rtl">'+esc(r.heb)+'</span>':'')
+         + '</div><div class="med-row-d">'+(r.d[lang]||"")
+         + '<span class="act">'+r.a[lang]+'</span></div></div>';
+      });
+      h+='</div>';
+    }
+    if(s.steps){
+      h+='<div class="med-steps">';
+      s.steps.forEach((st,i)=>{
+        h+='<div class="med-step"><span class="med-step-n">'+(i+1)+'</span><div><div class="med-step-t">'
+         + esc(st.t[lang])+(st.heb?' <span class="heb" lang="he" dir="rtl">'+esc(st.heb)+'</span>':'')
+         + '</div><div class="med-step-d">'+st.d[lang]+'</div></div></div>';
+      });
+      h+='</div>';
+    }
+    if(s.quote) h+='<div class="med-quote">'+s.quote[lang]+'</div>';
+    if(s.note)  h+='<p class="med-note">'+s.note[lang]+'</p>';
+    h+='</section>';
+  });
+  if(finalTxt) h+='<div class="med-final"><p>'+esc(finalTxt)+'</p></div>';
+  g(target).innerHTML=h;
+}
+
+function render(){
+  renderChrome();renderList();
+  renderSections(FAST,"fastContent",UI[lang].finalF);
+  renderSections(KIDS,"kidsContent",null);
+  renderScroll(KAPOROT,"kaporotContent");
+  renderScroll(BRACHA,"brachaContent");
+  updateStats();moveThumb();moveInk();
+}
+
+/* ---------- прогресс ---------- */
+function total(){return LIST.reduce((n,s)=>n+s.items.length,0)}
+function updateStats(){
+  const u=UI[lang],tot=total(),n=done.size,pct=tot?Math.round(n/tot*100):0;
+  g("statNum").innerHTML=n+' <em>'+u.of+'</em> '+tot+' &nbsp;· '+pct+'%';
+  g("statFill").style.width=pct+"%";
+  g("barFill").style.width=pct+"%";
+  g("tabBadge").textContent=n+"/"+tot;
+}
+function toggle(el){
+  const id=el.dataset.id;
+  if(done.has(id))done.delete(id);else done.add(id);
+  const is=done.has(id);
+  el.dataset.done=is?"1":"0";
+  el.setAttribute("aria-checked",is);
+  save(K_DONE,JSON.stringify([...done]));
+  updateStats();
+}
+g("listContent").addEventListener("click",e=>{
+  if(e.target.closest(".jump"))return;
+  const it=e.target.closest(".item"); if(it)toggle(it);
+});
+g("listContent").addEventListener("keydown",e=>{
+  if(e.key===" "||e.key==="Enter"){
+    if(e.target.closest(".jump"))return;
+    const it=e.target.closest(".item"); if(it){e.preventDefault();toggle(it)}
+  }
+});
+
+/* ---------- страницы ---------- */
+const tabs=g("tabs"), ink=g("tabInk");
+function moveInk(){
+  const a=tabs.querySelector('.tab[aria-selected="true"]'); if(!a)return;
+  ink.style.width=a.offsetWidth+"px";
+  ink.style.transform="translateX("+a.offsetLeft+"px)";
+  // если полоса вкладок прокручивается (узкий экран) — подтянуть активную в зону видимости
+  if(tabs.scrollWidth>tabs.clientWidth+1){
+    const l=a.offsetLeft, r=l+a.offsetWidth, s=tabs.scrollLeft, w=tabs.clientWidth;
+    if(l<s+12) tabs.scrollLeft=Math.max(0,l-12);
+    else if(r>s+w-12) tabs.scrollLeft=r-w+12;
+  }
+}
+const PAGES=["list","times","kaporot","bracha","fast","kids"];
+function go(p,push){
+  if(PAGES.indexOf(p)<0)p="list";
+  page=p;
+  tabs.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-selected",t.dataset.page===p));
+  PAGES.forEach(k=>g("page-"+k).classList.toggle("on",k===p));
+  g("track").classList.toggle("dim",p!=="list");
+  document.title=docTitle();
+  moveInk();
+  if(push!==false&&location.hash.slice(2)!==p)location.hash="#/"+p;
+  window.scrollTo({top:0,behavior:push===false?"auto":"smooth"});
+}
+tabs.addEventListener("click",e=>{const t=e.target.closest(".tab");if(t)go(t.dataset.page)});
+document.addEventListener("click",e=>{const b=e.target.closest("[data-go]");if(b)go(b.dataset.go)});
+window.addEventListener("hashchange",()=>go(location.hash.slice(2)||"list",false));
+window.addEventListener("resize",()=>{moveInk();moveThumb()});
+
+/* ---------- язык ---------- */
+const sw=g("langSwitch"), thumb=g("thumb");
+function moveThumb(){
+  const a=sw.querySelector('button[aria-pressed="true"]'); if(!a)return;
+  thumb.style.width=a.offsetWidth+"px";
+  thumb.style.transform="translateX("+(a.offsetLeft-3)+"px)";
+}
+sw.addEventListener("click",e=>{
+  const b=e.target.closest("button[data-lang]");
+  if(!b||b.dataset.lang===lang)return;
+  lang=b.dataset.lang;
+  sw.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x.dataset.lang===lang));
+  save(K_LANG,lang);
+  render();
+});
+
+/* ---------- сброс ---------- */
+const toastEl=g("toast");let tt;
+function toast(m){toastEl.textContent=m;toastEl.classList.add("show");clearTimeout(tt);tt=setTimeout(()=>toastEl.classList.remove("show"),2200)}
+g("resetBtn").addEventListener("click",()=>{done.clear();save(K_DONE,"[]");renderList();updateStats();toast(UI[lang].toastReset)});
+
+/* ---------- поделиться ---------- */
+g("shareBtn").addEventListener("click",async()=>{
+  const u=UI[lang], url=location.href;
+  if(navigator.share){
+    try{ await navigator.share({title:u.shareTitle,text:u.shareText,url}); return; }
+    catch(e){ if(e&&e.name==="AbortError")return; }
+  }
+  try{
+    await navigator.clipboard.writeText(url);
+    toast(u.toastCopied); return;
+  }catch(e){}
+  try{
+    const ta=document.createElement("textarea");
+    ta.value=url; ta.style.position="fixed"; ta.style.opacity="0";
+    document.body.appendChild(ta); ta.select();
+    document.execCommand("copy"); ta.remove();
+    toast(u.toastCopied);
+  }catch(e){ prompt(u.share, url); }
+});
+
+/* ---------- что определило само устройство ---------- */
+function paintGeo(){
+  const box=g("clGeo"); if(!box)return;
+  let tz="";
+  try{ tz=Intl.DateTimeFormat().resolvedOptions().timeZone||""; }catch(e){}
+  if(!tz){ box.hidden=true; return; }           // не определилось — не показываем ничего
+  const city=(tz.indexOf("/")>0 ? tz.split("/").pop() : tz).replace(/_/g," ");
+  let now="";
+  try{ now=new Date().toLocaleTimeString(UI[lang].locale,{hour:"2-digit",minute:"2-digit",timeZone:tz}); }
+  catch(e){ now=new Date().toLocaleTimeString(UI[lang].locale,{hour:"2-digit",minute:"2-digit"}); }
+  g("clGeoCity").textContent=city;
+  g("clGeoTime").textContent=now;
+  g("clGeoZone").textContent=tz;
+  box.hidden=false;
+}
+setInterval(paintGeo,30000);
+
+/* ---------- виджет Хабада: грузим в iframe, изолированно ----------
+   Их скрипт — блокирующий и сторонний. Оставленный в теле документа, он
+   при медленном или недоступном chabad.org останавливает разбор страницы
+   и она остаётся пустой. В iframe он выполняется сам по себе и навредить
+   основному документу не может. Код внутри — дословный.                */
+function initChabad(){
+  const tpl=g("clTpl"), fr=g("clFrame"), card=g("clCard"), fail=g("clFail");
+  if(!tpl||!fr||!card||!fail)return;
+  let done=false;
+  const giveUp=()=>{ if(!done){ card.hidden=true; fail.hidden=false; } };
+
+  try{
+    const d=fr.contentDocument||(fr.contentWindow&&fr.contentWindow.document);
+    if(!d){ giveUp(); return; }
+    d.open();
+    d.write('<!DOCTYPE html><html><head><meta charset="utf-8">'
+          + '<base target="_blank"><style>html,body{margin:0;padding:0;background:transparent}'
+          + 'body{display:flex;justify-content:center}</style></head><body>'
+          + tpl.innerHTML + '</body></html>');
+    d.close();
+  }catch(e){ giveUp(); return; }
+
+  // ждём, пока их скрипт впишет настоящее время (7:02 / 19:02)
+  let tries=0;
+  const poll=setInterval(()=>{
+    tries++;
+    let txt="",hgt=0;
+    try{
+      const d=fr.contentDocument;
+      txt=(d&&d.body&&d.body.innerText)||"";
+      hgt=(d&&d.body&&d.body.scrollHeight)||0;
+    }catch(e){}
+    if(/\d{1,2}:\d{2}/.test(txt)){
+      done=true; clearInterval(poll);
+      fr.style.height=Math.max(hgt,40)+"px";
+      card.hidden=false; fail.hidden=true;
+    }else if(tries>=24){            // ~8 секунд
+      clearInterval(poll); giveUp();
+    }
+  },350);
+}
+/* запускаем только после полной загрузки страницы — так виджет
+   не задерживает ни отрисовку, ни событие load */
+function startChabad(){ setTimeout(initChabad,60); }
+if(document.readyState==="complete") startChabad();
+else window.addEventListener("load",startChabad);
+
+/* ---------- старт ---------- */
+(function init(){
+  const sl=load(K_LANG);
+  if(sl==="de"||sl==="ru")lang=sl;
+  else if((navigator.language||"").toLowerCase().startsWith("de"))lang="de";
+  sw.querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.lang===lang));
+  try{const r=load(K_DONE);if(r)JSON.parse(r).forEach(i=>done.add(i))}catch(e){}
+  render();
+  go(location.hash.slice(2)||"list",false);
+  setTimeout(()=>{moveThumb();moveInk()},60);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>{moveThumb();moveInk()});
+})();
+</script>
+</body>
+</html>
